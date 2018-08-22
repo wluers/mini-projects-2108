@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head> 
+	<meta charset="utf-8">
+	<script src="script.js"></script>
+	
+	<style>
+
+      #box {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 5px;
+      }
+
+      #box div {
+         height: 200px;
+          padding: 3%;
+          border: 1px solid black;
+
+      }
+
+  </style>
+
+</head>
+<body>
+
+     
+    <div id="box"></div>
+
+	  <button onclick="newMealPlan()">CLICK</button>
+
+
+
+
+<script> 
+
+
+function newMealPlan() {
+
+  document.getElementById("box").innerHTML = '';
+
+  //let name = prompt("What is your name?", "Alex, Sarah, Tyler");
+  let protein = prompt("What are some your favorite proteins?", "steak, tuna, hamburger, tofu, cod, turkey, salmon, chicken, eggs");
+  let carb = prompt("What are your favorite carb?", "oatmeal, rice, noodles, sweet potatoes, potatoes, quinoa");
+  let veg = prompt("Favorite vegetables?", "asparagus, spinach, cauliflower, tomato, lettuce, kale, green beans");
+  let fruit = prompt("Favorite fruits?", "apple, stawberry, banana, mango, blueberries, raspberries");
+  let fat = prompt("What are some favorite fats?", "avocado, cheese, yogurt, cream, butter, olive oil");
+
+  //////CLASS
+
+  class Mealplan  {
+    constructor(name, protein, carb, veg, fruit, fat) {
+      this._name = name;
+      this._protein = protein;
+      this._carb = carb;
+      this._veg = veg;
+      this._fruit = fruit;
+      this._fat = fat;
+      }
+
+      get name() {
+        return this._name;
+      }
+
+      get protein() {
+        return this._protein.split(", ");
+      }
+
+      get carb() {
+        return this._carb.split(", ");
+      }
+
+      get veg() {
+        return this._veg.split(", ");
+      }
+
+      get fruit() {
+        return this._fruit.split(", ");
+      }
+
+      get fat() {
+        return this._fat.split(", ");
+      }
+
+      set name(newName) {
+        this._name = newName;   
+      }
+  
+
+      createPlan() {
+      
+        for (let i = 0; i <= 6; i++){
+          let randomProtein = Math.floor(Math.random() * (this.protein.length-1) ),
+           randomProtein2 = Math.floor(Math.random() * (this.protein.length-1) ),
+           randomCarb = Math.floor(Math.random() * (this.carb.length-1) ),
+           randomCarb2 = Math.floor(Math.random() * (this.carb.length-1) ),
+           randomVeg = Math.floor(Math.random() * (this.veg.length-1) ),
+           randomVeg2 = Math.floor(Math.random() * (this.veg.length-1) ),
+           randomFruit = Math.floor(Math.random() * (this.fruit.length-1) ),
+           randomFruit2 = Math.floor(Math.random() * (this.fruit.length-1) ),
+           randomFat = Math.floor(Math.random() * (this.fat.length-1) ),
+           randomFat2 = Math.floor(Math.random() * (this.fat.length-1) ),
+           randomSpecial = Math.floor(Math.random() * 7);
+      
+
+            document.getElementById("box").innerHTML += `<div id="day${i+1}"><strong>Day ${i+1}</strong><br>Breakfast: ${this.fruit[randomFruit]}, ${this.fat[randomFat]}, ${this.carb[randomCarb]}<br>Lunch: ${this.protein[randomProtein]}, ${this.veg[randomVeg]}<br>Dinner: ${this.protein[randomProtein2]}, ${this.veg[randomVeg2]}, ${this.carb[randomCarb2]}, ${this.fat[randomFat2]}</div>`;
+
+            if ( i+1 === randomSpecial) { document.getElementById(`day${i+1}`).innerHTML = `<strong>Day${i+1}</strong><br>Feast or Fast!`; }
+
+         } //closes loop
+     } // closes createPlan
+
+    
+  } // closes Mealplan class
+
+
+      //// SUB CLASSES (derived from parent class)
+
+      class PaleoPlan extends Mealplan {
+
+           constructor(name, protein, veg, fruit, fat) {
+              super(name, protein, veg, fruit, fat);
+              // add other new parameters for this subclass
+           }
+           
+      }
+
+
+      /////INSTANCE OF CLASS
+
+      const user = new Mealplan(name, protein, carb, veg, fruit, fat);
+      user.createPlan();
+
+} // closes newMeaplan function
+
+
+
+  </script>
+
+
+
+</body>
+</html>

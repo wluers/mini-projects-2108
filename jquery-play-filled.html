@@ -1,0 +1,299 @@
+
+    <!DOCTYPE html>
+    
+    
+    <html>
+
+    <head>
+
+    <title>jquery play template</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js">
+</script>
+
+	
+
+
+	<style>
+	body  {
+		background-color: #ffffff; 
+		font-family: futura, helvetica, arial, sans-serif 
+		}
+	
+	#wrapper {
+		position: relative; 
+		background-color: #ffffff; 
+		width: 800px; 
+		height: 600px; 
+		margin: 20px auto; 
+		border: 1px dotted #000000; 
+		padding: 20px;
+		} 
+	
+	p  {
+		position: absolute;
+		right: 0px;
+		bottom: 0px;
+		background-color: #ffffff; 
+		width: 450px; 
+		border: 1px solid #000000; 
+		padding: 10px; 
+		margin: 0px
+		}
+	
+	#box  {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		padding: 10px;
+		background-color: #ffffff; 
+		background-repeat: no-repeat; 
+		width: 400px; 
+		height: 270px; 
+		border: 2px solid #000000;
+		}
+		
+	button  {
+		position: fixed;
+		right: 0px;
+		top: 0px;
+		}
+	
+	
+	
+	</style>
+
+    </head>
+
+    <body>
+    
+    <div id="wrapper">
+    
+    <div id="box">This is an empty div for images.
+   		<ul>
+    		<li>Item 1</li>
+    		<li>Item 2</li>
+    		<li>Item 3</li>
+    	</ul>
+    </div>
+    
+    <p> This is a paragraph element. </p>
+    
+    <button>DO STUFF</button>
+  
+    </div>
+
+
+   <script>
+	
+	$(document).ready(function(){   //this opens the document ready function
+	
+
+		// simple event with a function 
+
+/*
+		$("button").click(function() {
+			alert("You clicked a button.");
+			//$('p').html("<em>Replaced Text</em>");
+		});
+*/
+
+
+/*
+
+       $("button").click(function(){
+		  $("p").css('width','150px');
+		});
+*/
+
+/*
+		$("button").click(function(){
+		  $("p").css('width','150px');
+		  $('p').css('background-color','yellow');
+		});
+
+*/
+
+/*
+		$("button").click(function(){
+			$('p').css({
+			'background-color':'yellow',
+			'width':'150px',
+			'font-size':'2em'
+			});
+
+		});
+*/
+
+
+
+/*
+$("button").click(function(){
+  $("p").hide(1000);
+  alert("The paragraph is now hidden");
+});
+*/
+
+
+
+// with callback functions
+
+/*
+$("button").click(function(){
+    $("p").hide("slow",function(){
+      alert("The paragraph is now hidden");
+    });
+  });
+
+ */
+
+
+/*
+
+// anonymous function, each and this
+
+		$("button").click(function(){
+		  $("li").each(function(){
+		    alert($(this).text())
+		  });
+		});
+*/
+
+/*
+// without chaining
+$("ul").fadeOut('fast');
+$("ul").css('font-size', '1.2em');
+$("ul").fadeIn(2000);
+*/
+
+/*
+// with chaining
+$("ul").delay(2000).fadeOut('fast').css('color', 'red').delay(2000).fadeIn(2000);
+*/
+
+
+// simple event with a function 
+
+/*
+  $("button").click(function(){
+    $("p").toggle();
+    //$("p").slideToggle();
+  });
+ */
+
+/*
+$("body").keyup(function(e){
+   if(e.keyCode == 8){
+       // user has pressed backspace
+       $("p").css({'background-color': 'red'});
+   }
+   if(e.keyCode == 32){
+       // user has pressed space bar
+       $("p").css({'background-color': 'yellow'});
+   }
+});
+*/
+  
+  
+/*
+mouse: click, dblclick, mousedown, mouseup, mouseover, mouseout, mousemove 
+document/window: load, resize, scroll, unload, 
+keyboard: keypress, keydown, keyup
+jquery events (two functions passed):  hover
+*/
+
+
+/*
+$("button").hover(function(){
+    $("body").css("background-color","yellow");
+   },
+function(){
+    $("body").css("background-color","red");
+}
+);
+
+*/
+
+
+/*
+// event object
+
+ $(document).mousemove(function(evt){ 
+    $("p").text("X: " + evt.pageX + ", Y: " + evt.pageY); 
+  });
+
+ // .on()
+$("button").on("click",function(){
+    $("p").slideToggle();
+  });
+
+  */
+
+
+
+/*
+$("button").on({
+  click:function(){
+ 	$("p").slideToggle();
+ 	},
+ mouseover:function(){
+  	$("body").css("background-color","#E9E9E4");
+  	},  
+  mouseout:function(){
+    	$("body").css("background-color","#FFFFFF");}  
+  });
+
+*/ 
+  
+
+// EFFECTS
+ 
+ //  animate with arguement
+ 
+/*
+ $("button").click(function(){
+   $("#box").animate(
+    {width:"100%"},2000);
+  });
+ */
+ 
+
+//  stop()
+
+/*
+$("button").click(function(){
+$("#box").animate({width:"820px"},5000);
+});    
+
+$("#box").dblclick(function(){
+$("#box").stop();
+});
+*/
+
+// .delay()
+
+/*
+ $("button").click(function(){
+	$("#box").animate(
+		{height:'100px'},1000)
+	.delay(3000)
+	.animate(
+		{width:'820px'},1000);
+});
+ */ 
+ 
+
+
+
+	});  //this closes the document ready function
+	
+
+	
+	</script>
+
+
+
+    
+    </body>
+
+    </html>
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<style>
+#story {
+	width: 65%;
+	padding: 3%;
+	margin: 15% auto;
+	border: 2px solid black;
+	font-size: 1.5em;
+	}
+</style>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+
+confirm("Ready to play?");
+
+
+function changeStory()  {
+	
+	var character = [],
+		object = [],
+		place = [];
+
+	character[0] = prompt('Name a character type.', 'a kind old man').toLowerCase();
+	object[0] = prompt('Name an object.', 'ring of  keys').toLowerCase();;
+	place[0] = prompt('Name a generic place.','at the zoo').toLowerCase();
+	character[1] = prompt('Name a character.', 'Hazel').toLowerCase();
+	object[1] = prompt('Another object?', 'pen' ).toLowerCase();;
+	place[1] = prompt('Name a place.','Philadelphia').toLowerCase();
+	
+	
+
+	$('#story').html('In <span style="text-transform:capitalize;">' + place[1] + '</span>, I met ' +  character[0] + ' who had a ' +  object[1] + ' with magical powers.  All you had to do was whisper \"' + object[1] + '\" and a creature named <span style="text-transform:capitalize;">' + character[1] + '</span> appeared ' +  place[0] +  ' with a ' +  object[0] + '. But neither the ' +  object[0] + ' nor <span style="text-transform:capitalize;">'+ character[1] +'</span> had any magical powers, as far as I could tell. So there we all were '+ place[0] + ' somewhere in <span style="text-transform:capitalize;">' + place[1] + '</span>. Me, ' +  character[0] + ' and <span style="text-transform:capitalize;">'+ character[1] +'</span> staring at a ' + object[1] + ' and a ' + object[0] + '.');
+	
+	
+}
+
+
+
+
+
+</script>
+</head>
+<body>
+<button onclick="changeStory()">story generator</button>
+<div id="story"></div>
+</body>
+</html>

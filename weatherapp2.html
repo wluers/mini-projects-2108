@@ -1,0 +1,64 @@
+
+<DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>weather app</title>
+	<style>
+   </style>
+ </head>
+
+ <body>
+
+ 	<div>
+ 		<input type="text" id="city">
+ 		<button id="submitWeather">Search City</button>
+ 	</div>
+
+ 	<div id="show"></div>
+ 	<div id="error"></div>
+   
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+    	$(document).ready(function() {
+
+    	//key 5d403b6b84ed210aa64a032618aa4156
+        $('#submitWeather').click(function() {
+        	let city = $('#city').val();
+        	if (city != '') {
+
+        		$.ajax({
+
+        			url: `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&APPID=5d403b6b84ed210aa64a032618aa4156`,
+        			type: "GET",
+        			dataType: "jsonp",
+        			success: function(response) {
+        				console.log(response);
+        				//let weatherData = JSON.stringify(data);
+							//$('#show').html(weatherData);
+
+        				let testField  = response.weather[0].description;
+
+        					$('#show').html(`${testField} `);
+        			}
+
+        		});
+
+
+        	}
+        	else {
+        		$('#error').html("Field cannot be empty");
+        	}
+        
+        });
+
+
+
+
+    });
+
+    </script>
+ </body>
+ </html>

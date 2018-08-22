@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+	<head lang="en">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		
+	</head>
+	<body>
+
+		<button onclick="incScore()">INCREMENT</button>
+		<button onclick="saveScore()">SAVE SCORE</button>
+		<button onclick="reStart()">RESTART</button>
+	
+
+		<p id="scoreBox"></p>
+
+		<script>
+            let scoreBox = document.querySelector('#scoreBox');
+            // localStorage.setItem('score', '0') - this would set the score in local storage, but we don't want to return to zero each page refresh, so.....
+            if (scoreBox.innerHTML === null) {
+            	scoreBox.innerHTML = '0';
+            }
+            else {
+            	scoreBox.innerHTML = localStorage.getItem('score');
+            }
+            
+
+			function incScore() {
+				let num = scoreBox.innerHTML;
+				num++;
+				scoreBox.innerHTML = num;
+				//saveScore(); you can save here as well
+			}
+
+			function saveScore()  {
+				let newScore = scoreBox.innerHTML;
+                localStorage.score = newScore; // save current score t0 localStorage
+                if (localStorage.getItem('score')) {
+                	scoreBox.innerHTML = localStorage.getItem('score');
+                }
+			}
+
+			function reStart()  {
+				localStorage.removeItem("score"); // get rid of localStorage
+				scoreBox.innerHTML = null;
+			}
+
+
+
+		</script>
+		
+	</body>
+</html>

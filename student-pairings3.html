@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Student Pairing</title>
+<style>
+.student, #submit, #reset {
+	display: inline-block;
+	width: 20%;
+	padding: 1%;
+	margin: 1%;
+	border: 1px solid black;
+}
+input[type="radio"] {
+	transform: scale(1);
+}
+#submit, #reset {
+	background: #666;
+	color: white;
+}
+</style>
+</head>
+<body>
+
+<form>
+	<div id="students"></div>
+</form>
+<div id="pairings"></div>
+<div id="message"></div>
+
+
+
+<script>
+let names = [
+	'Briar', 
+	'Luke', 
+	'Richard', 
+	'Remy',  
+	'Evan', 
+	'Deborah', 
+	'Dani', 
+	'Annie', 
+	'Daniel', 
+	'Cam', 
+	'Ryan',
+	'Nate', 
+	'Brianna', 
+	'Joseph', 
+	'Jarid', 
+	'Sydney',
+	'Elaina',
+	'Cody',
+	'James',
+	'Zack',
+	'Will'
+];
+	
+let students = document.getElementById("students");
+let pairings = document.getElementById("pairings");
+
+
+let current_student_id = 0;	
+names.forEach(function(name) {
+	students.innerHTML = students.innerHTML + "<div class='student'>" +
+		"<h3>" + name + "</h3>" +
+		"<input type='radio' name='student" + current_student_id + "' value='1'>Confident<br>" +
+		"<input type='radio' name='student" + current_student_id + "' value='2'>Shakey<br>" +
+		"</div>";
+	current_student_id++;
+});
+
+students.innerHTML = students.innerHTML + "<div id='submit'>" +
+	"<input type='button' value='Get Pairs' onClick='computeForm()'>" + 
+	"</div>" +
+	"<div id='reset'>" +
+	"<input type='reset' value='Reset'>" +
+	"</div>";
+
+function computeForm() {
+	let confident_students = [];
+	let shakey_students = [];
+	
+	// get radio values for each student
+	for (let student_index = 0; student_index < names.length; student_index++) {
+		let radio_inputs = document.getElementsByName('student' + student_index);
+		let radio_value = 0;
+		radio_inputs.forEach(function(radio_input) {
+			if (radio_input.checked) {
+				radio_value = radio_input.value;
+			}
+		});
+		if (radio_value == 1) { // Confident
+			confident_students.push(names[student_index]);
+		}
+		else if (radio_value == 2) { // Shakey
+			shakey_students.push(names[student_index]);
+		}
+		
+	}
+	
+	// randomize the lists of students for random pairings
+	confident_students.sort(function() {
+		return 0.5 - Math.random(); 
+	});
+	shakey_students.sort(function() {
+		return 0.5 - Math.random(); 
+	});
+	
+	// generate pairings
+	let student_pairings = [];
+	while (confident_students.length) {
+		let student1 = confident_students.pop();
+		let student2 = "self";
+		if (shakey_students.length) {
+			student2 = shakey_students.pop();
+		}
+		else if (confident_students.length) {
+			student2 = confident_students.pop();
+		}
+		let pairing = [student1, student2];
+		student_pairings.push(pairing);
+	}
+	while (shakey_students.length) {
+		let student1 = shakey_students.pop();
+		let student2 = "self";
+		if (shakey_students.length) {
+			student2 = shakey_students.pop();
+		}
+		let pairing = [student1, student2];
+		student_pairings.push(pairing);
+	}
+	
+	// display results
+	pairings.innerHTML = "";
+	student_pairings.forEach(function(pairing) {
+		pairings.innerHTML = pairings.innerHTML + pairing[0] + " with " + pairing[1] + "<br>";
+	});
+}
+		
+</script>
+</body>
+</html>

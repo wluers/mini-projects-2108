@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head> 
+	<meta charset="utf-8">
+	<script src="script.js"></script>
+	
+
+
+</head>
+<body>
+<!--<body onload="draw();">-->
+     
+    <div id="box"></div>
+   <!-- <canvas id="canvas" width="200px" height="200px"></canvas>-->
+	<button onclick="mapFunction()">CLICK</button>
+
+
+    <script>
+    		//document.getElementById("box").innerHTML = Mealplanner.breakfast[2];
+    </script>
+
+      <script> 
+
+  
+
+let box = document.getElementById('box');
+var numbers = [65, 44, 12, 4];
+
+function multiplyArrayElement(num) {
+    return num * 100;
+}
+
+function mapFunction() {
+    box.innerHTML = numbers.map(multiplyArrayElement);
+}
+
+
+
+
+
+
+
+  </script>
+
+</body>
+</html>

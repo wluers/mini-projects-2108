@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head> 
+	<meta charset="utf-8">
+	<script src="script.js"></script>
+	
+	<style>
+
+      #box {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 1%;
+      }
+
+      #box div {
+         border: 1px solid black;
+         padding: 3%;
+
+      }
+
+  </style>
+
+</head>
+<body>
+<!--<body onload="draw();">-->
+     
+    <div id="box"></div>
+ <!-- <canvas id="canvas" width="200px" height="200px"></canvas>-->
+	<button onclick="newPlan()">CLICK</button>
+
+
+
+
+<script> 
+
+  // statements, objects, function/methods(), dot
+  //strings, math
+    /*alert('hello world');
+    console.log('Hello World');
+    document.write('Hello World');
+*/
+
+ // explain dot syntax - methods and properties
+
+     // variables
+
+   /*  let firstname;
+    firstname ="Nicholas";
+    //document.write(firstname);
+
+    firstname="Nick";
+    document.write('<br>My name is ' + firstname);
+   */
+
+
+   //strings
+/*
+   let name = 'Hermione';
+   document.write(name.length);
+   document.write(name[0]);
+   let nameUpper = name.toUpperCase();
+   let nameLower = name.toLowerCase();
+  
+   name[0].toUpperCase();
+   name.slice(1).toLowerCase();
+
+*/
+
+
+ 
+
+  //numbers
+
+/*
+   let secondsInMinute = 60;
+   let minutesInHour = 60;
+   let secondsInHour = secondsInMinute * minutesInHour;
+   let hoursInDay = 24;
+   let secondsInDay= secondsInHour * hoursInDay;
+  document.write(secondsInHour);
+  document.write(secondsInDay);
+ 
+
+*/
+// concatination with html 
+/*
+  document.write('The amount of second in an hour is ' + secondsInHour + '<br>');
+  document.write('The amount of second in a day is ' + secondsInDay+ '<br>');
+
+
+ //document.write(name + ' says, "Let\'s start class!"')
+//document.write(`${name} says, "Let's start class!`)
+
+
+*/
+
+
+
+// comparison operator
+
+/*let x;
+let r=confirm("Press a button!");
+if (r==true)
+  {
+  x="You pressed OK!";
+  }
+else
+  {
+  x="You pressed Cancel!";
+  }
+document.write(x);
+
+*/
+
+/*let x;
+let r=prompt("What is your favorite primary color?");
+if (r=='green')
+  {
+  x="You pressed green.";
+  }
+else if r=='yellow')
+  {
+  x="You pressed yellow.";
+  }
+else
+  {
+  x="You pressed blue";
+  }
+document.write(x);
+
+*/
+
+
+
+
+// basic operators
+
+/*let doMath  =  2 + 3 * 2;
+document.write(doMath);
+*/
+
+// more operators ++ -- += -= *= /= %
+/*let score = 5;
+score+=100;
+document.write(score);
+*/
+
+
+
+
+//comparison operators
+/*let x = 5;
+if (x==8) {document.write('x===8 is true. <br>');}
+
+if (x!==8) {document.write('x!==8 is true.');}
+
+*/
+
+
+
+
+// comparison and conditionals
+
+/*let x;
+let r = confirm("Press a button!");
+if (r==true)
+  {
+  x="You pressed OK!";
+  }
+else
+  {
+  x="You pressed Cancel!";
+  }
+document.write(x);
+*/
+
+/*let r = prompt("pick the number 0 or 1");
+if (r>0)
+  {
+  x="You selected 1";
+  }
+else
+  {
+  x="You selected 0";
+  }
+document.write(x);
+*/
+
+/*
+let d = new Date();
+let time = d.getHours();
+
+if (time > 12) 
+  {
+  document.write("Good afternoon!");
+  }
+  */
+
+// if else
+
+/*let d = new Date();
+let time = d.getHours();
+if (time<20)
+  {
+  x="Good day";
+  }
+else
+  {
+  x="Good evening";
+  }
+document.write(x);
+*/
+
+/*
+let d = new Date();
+let time = d.getHours();
+if (time>=10 && time<=17)
+  {
+  x="Good day";
+  }
+else if (time>=18)
+  {
+  x="Good evening";
+  }
+else
+  {
+  x="Good morning";
+  }
+document.write(x);
+*/
+
+
+// if...else if conditionals
+
+/*
+  let i = Math.random() * 20;
+  document.write("the random number is " + i + '<br>') 
+  if (i > 15) {
+    document.write(i + " is greater than 15");
+  }
+  else if (i < 5) {
+    document.write(i + " is less than 5");
+  }
+  else {
+    document.write(i + " between 5 and 15");
+  }
+*/
+
+///*
+
+
+
+// FUNCTIONS
+
+/* 
+// three different ways to declare a function
+
+function displayMessage() {
+ alert("Hello World!");
+} 
+
+const displayMessage = function() {
+  alert("Hello World!");
+};
+
+
+const displayMessage = () => {
+  alert("Hello World!");
+}
+
+displayMessage();
+
+/////
+
+function displayMessage(message){
+ alert(message);
+}
+
+// or as arrow function - refactored
+const displayMessage = message =>
+alert(message);
+
+displayMessage("Waz Up");
+
+////
+
+function displayMessage(message,tag){
+document.write('<' + tag + '>' + message + '</' + tag + '>');
+}
+displayMessage('Hello world!', 'h1');
+
+
+////
+
+function myFunction(a,b){
+ total = a + b;
+ return total;
+}
+
+
+document.write("Your total is: " + myFunction(4,3));
+
+///
+
+let a = 10;   // global variable
+show_a();
+
+function show_a()  {
+   let a = 20; // local letiable
+   alert("Value of 'a' inside the function is " + a);
+   }
+
+alert("Value of 'a' outside the function is " + a);
+*/
+
+//*/
+
+/// Call stack = single-threaded, one at a time, sequence on executing functions 
+//and "stack overflow" = too many calls , recursive
+
+/*function chicken()  {
+return egg();
+  }
+
+function egg()  {
+return chicken();
+  }
+
+console.log(chicken() + “ came first”)
+*/
+
+///
+
+/// LOOPS
+
+/*
+
+for (i=0; i<=5; i++)
+{
+document.write("The number is " + i);
+document.write("<br />");
+}
+
+let i = 0;
+while (i<=5)
+{
+document.write("The number is " + i);
+document.write("<br />");
+i++;
+}
+
+let coin = Math.floor(Math.random() * 2);
+while(coin === 0){
+  console.log("Heads! Flipping again...");
+  let coin = Math.floor(Math.random() * 2);
+}
+
+console.log("Tails! Done flipping.");
+
+
+*/
+
+
+/*
+
+// ARRAYS
+
+let fruits = [ 
+"apples", 
+"bananas", 
+"oranges"
+];
+
+document.write("fruit #2: " + fruits[1]);
+
+///
+
+let fruits = [ 
+"apples", 
+"bananas", 
+"oranges"
+];
+
+fruits.push("Kiwi");  //add to end
+fruits.unshift("Lemon");//add to start
+document.write(fruits);
+
+///
+
+let fruits = [ 
+"apples", 
+"bananas", 
+"oranges"
+];
+
+fruits.pop(); //remove last
+fruits.shift(); //remove first
+document.write(fruits);
+
+
+///
+
+fruits = [
+    "Banana", 
+    "Orange", 
+    "Apple", 
+    "Mango"    ];
+
+for (let i = 0; i < fruits.length; i++) {
+ document.write("I like " + fruits[i] + ". <br>");
+}
+ */ 
+
+
+ /*
+
+nested for loops in "What Thing Are You Quiz?"
+
+nested functions  -  circles
+
+ */
+
+
+ /*
+
+ // nested arrays - like a file cabinet, not like a relational database, but you could use tags
+
+foods =  [
+      ["Banana", "Orange", "Apple", "Mango"    ],
+      ["Bread", "Pasta", "Rice", "Potato"    ],
+      ["Lettuce", "Pepper", "Cucumber", "Onion"  ]
+    ]
+// foods[2][] = 
+
+let fruits = foods[0]; // 
+let starches = foods[1];
+let vegetables = foods[2];
+
+document.write("My favorite food is " + starches[2]  + ". <br> "  );
+document.write("My favorite vegetable is " + vegetables[2]  + ". <br> "  );
+
+*/
+
+/*function randomFoods() {
+
+  // explain innerHTML, problems with document.write()
+    let fullTxt = [];
+    for (let i = 0; i < foods.length; i++) {
+     let rnd = Math.floor(Math.random() * foods.length);
+     fullTxt[i] = foods[i][rnd]; 
+    }
+
+    document.getElementById('box').innerHTML = "Today eat: " + fullTxt;
+
+}
+*/
+
+
+
+/*  RANDOM GENERATOR
+
+        // random generator
+       function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+          }  
+
+        getRandomInt(0,10);
+        
+*/
+
+
+
+
+
+
+
+//  ARRAY METHODS
+
+/*
+
+// FOR EACH
+
+//<button onclick="numbers.forEach(addItems)">Try it</button>
+
+let box = document.getElementById('box');
+let sum = 0;
+let numbers = [65, 44, 12, 4];
+
+function addItems(item) {
+    sum += item;
+    box.innerHTML = sum;
+}
+
+*/
+
+/*
+
+// SORT alphabetic or numeric, and either ascending (up) or descending (down).
+
+// When comparing 40 and 100, the sort() method calls the compare function(40,100).
+
+//The function calculates 40-100, and returns -60 (a negative value).
+
+//The sort function will sort 40 as a value lower than 100.
+
+
+//ascending
+
+let points = [40, 100, 1, 5, 25, 10];
+document.getElementById("box").innerHTML = points.sort(function(a, b){return a-b});
+
+
+//descending
+let box = document.getElementById('box');
+let points = [40, 100, 1, 5, 25, 10];
+box.innerHTML = points.sort(function(a, b){return b-a});
+
+// sort and reverse
+let box = document.getElementById('box');
+let fruits = ["Banana", "Orange", "Apple", "Mango"];
+//box.innerHTML = fruits.sort();
+box.innerHTML = fruits.reverse();
+
+let box = document.getElementById('box');
+let fruits = ["Banana", "Orange", "Apple", "Mango"];
+box.innerHTML = fruits.sort(function() { return 0.5 - Math.random();}); // shuffle arrays
+*/
+
+
+/*  
+
+// SLICE - take out portion
+let box = document.getElementById('box');
+let fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+let citrus = fruits.slice(1, 3);
+box.innerHTML = citrus;
+ */
+
+/*
+
+// SPLICE - add/remove items
+// array.splice(index, howmany-to-remove, item1, ....., itemX)
+
+
+let box = document.getElementById('box');
+let fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.splice(2, 1, "Lemon", "Kiwi");
+box.innerHTML = fruits;
+*/
+
+/*
+
+// FILTER
+let box = document.getElementById('box');
+var ages = [32, 33, 16, 40];
+
+function checkAdult(age) {
+    return age >= 18;
+}
+
+function getAdults() {
+    box.innerHTML = ages.filter(checkAdult);
+}
+
+*/
+
+/*
+// MAP
+let box = document.getElementById('box');
+var numbers = [65, 44, 12, 4];
+
+function multiplyArrayElement(num) {
+    return num * 100;
+}
+
+function mapFunction() {
+    box.innerHTML = numbers.map(multiplyArrayElement);
+}
+
+*/
+
+
+
+/*
+
+// SOME - boolean, see if there are any adults
+let box = document.getElementById('box');
+let ages = [3, 10, 18, 20];
+
+function checkAdult(age) {
+    return age >= 18;
+}
+
+function someFunction() {
+    box.innerHTML = ages.some(checkAdult);
+}
+
+*/
+
+
+/*
+// EVERY - boolean, if every item is adult
+let box = document.getElementById('box');
+let ages = [32, 33, 18, 40];
+
+function checkAdult(age) {
+    return age >= 18;
+}
+
+function everyFunction() {
+    box.innerHTML = ages.every(checkAdult);
+}
+*/
+
+
+
+
+
+
+// Objects - objects create data storage around entities, arrays are like file cabinet, relational database searchable 
+
+/*
+let Mealplanner = {
+  breakfast : ["tofu", "bagel", "yogurt"],
+  lunch : "avocado sandwich",
+  dinner :  function() { alert("No meat!") }, 
+  diet : "vegetarian",
+  indulgence : "bacon"
+};
+
+//document.getElementById("box").innerHTML = Mealplanner.lunch;
+//document.getElementById("box").innerHTML = Mealplanner.breakfast[2];
+Mealplanner.dinner();
+*/
+
+/*
+let breakfast = prompt("What is your favorite breakast food?"),
+    lunch = prompt("What is your favorite lunch food?"),
+    dinner = prompt("What is your favorite dinner food?"),
+    diet = prompt("What is your diet?");
+
+
+//document.getElementById("box").innerHTML = Mealplanner.lunch;
+//document.getElementById("box").innerHTML = Mealplanner.breakfast[2];
+document.write("Your favorite foods are: " + Mealplanner.breakfast + ", " + Mealplanner.lunch + ", " + Mealplanner.dinner);
+*/
+
+// Object Constructor - a function that uses an object type or template to construct a new object
+
+/*
+function Mealplanner(breakfast, lunch, dinner, diet, indulgence) {
+    this.breakfast = breakfast;
+    this.lunch = lunch;
+    this.dinner = dinner;
+    this.diet = diet,
+    this.indulgence = indulgence
+}
+
+*/
+
+//ES6 CLassses
+
+/*let name = prompt("What is the name of your Mealplan?"),
+    protein = prompt("What are some your favorite proteins?", "steak, tuna, chicken stew, fried eggs"),
+    grain = prompt("What are your favorite starch or starch?", "oatmeal, rice, sweet potatoes"),
+    veg = prompt("Favorite vegetables?", "asparagus, spinach, tomato"),
+    fruit = prompt("Favorite fruits?", "apple, stawberry, banana"),
+    fat = prompt("What are some favorite fats?", "avocado, cheese, bacon");*/
+
+
+
+
+
+
+function newPlan() {
+
+  //let name = prompt("What is your name?", "Alex, Sarah, Tyler");
+  let protein = prompt("What are some your favorite proteins?", "steak, tuna, hamburger, tofu, cod, turkey, lamb, salmon, chicken, eggs");
+  let grain = prompt("What are your favorite starch?", "oatmeal, rice, noodles, sweet potatoes, potatoes, quinoa");
+  let veg = prompt("Favorite vegetables?", "asparagus, spinach, cauliflower, tomato, lettuce, kale, green beans");
+  let fruit = prompt("Favorite fruits?", "apple, stawberry, banana, mango, blueberries, raspberries");
+  let fat = prompt("What are some favorite fats?", "avocado, cheese, bacon, yogurt, cream, butter, olive oil");
+
+//////CLASS
+
+class Mealplan  {
+  constructor(name, protein, grain, veg, fruit, fat) {
+    this._name = name;
+    this._protein = protein;
+    this._grain = grain;
+    this._veg = veg;
+    this._fruit = fruit;
+    this._fat = fat;
+    }
+
+    get name() {
+      return this._name;
+    }
+
+    get protein() {
+      return this._protein.split(", ");
+    }
+
+    get grain() {
+      return this._grain.split(", ");
+    }
+
+    get veg() {
+      return this._veg.split(", ");
+    }
+
+    get fruit() {
+      return this._fruit.split(", ");
+    }
+
+    get fat() {
+      return this._fat.split(", ");
+    }
+
+   createPlan() {
+    
+      for (let i = 0; i <= 6; i++){
+        let randomProtein = Math.floor(Math.random() * (this.protein.length-1) ),
+         randomProtein2 = Math.floor(Math.random() * (this.protein.length-1) ),
+         randomGrain = Math.floor(Math.random() * (this.grain.length-1) ),
+         randomGrain2 = Math.floor(Math.random() * (this.grain.length-1) ),
+         randomVeg = Math.floor(Math.random() * (this.veg.length-1) ),
+         randomVeg2 = Math.floor(Math.random() * (this.veg.length-1) ),
+         randomFruit = Math.floor(Math.random() * (this.fruit.length-1) ),
+         randomFruit2 = Math.floor(Math.random() * (this.fruit.length-1) ),
+         randomFat = Math.floor(Math.random() * (this.fat.length-1) ),
+         randomFat2 = Math.floor(Math.random() * (this.fat.length-1) ),
+         randomFast = Math.floor(Math.random() * 7);
+    
+
+          document.getElementById("box").innerHTML += `<div id="day${i+1}"><strong>Day ${i+1}</strong><br>Breakfast: ${this.grain[randomGrain]}, ${this.fruit[randomFruit]}, ${this.fat[randomFat]}<br>Lunch: ${this.protein[randomProtein]},${this.veg[randomVeg]}<br>Dinner: ${this.protein[randomProtein2]},${this.veg[randomVeg2]},${this.grain[randomGrain2]}, ${this.fruit[randomFruit2]}, ${this.fat[randomFat2]}</div><br>`;
+
+          if ( i+1 === randomFast) { document.getElementById(`day${i+1}`).innerHTML = `<strong>Day${i+1}</strong><br>Fast Day`; }
+
+       }
+   }
+
+  
+}
+
+
+/////INSTANCE OF CLASS
+
+const user = new Mealplan(name, protein, grain, veg, fruit, fat);
+user.createPlan();
+
+}
+
+
+
+/*
+
+//const will = new Mealplan('Will','hamburger, grilled fish, eggs, chicken','oatmeal, rice, sweet potatoes','asparagus, spinach, tomato','apple, stawberry, banana','avocado, cheese, bacon' );
+
+  
+  
+
+// explain new
+let Tim = new Mealplanner("bagel", "soup", "hambuger", "gluten-free", "pie");
+let Megan = new Mealplanner("cereal", "a sandwich", "fish", "paleo", "chocolate");
+
+// explain window on load
+window.onload  = function() {
+document.getElementById("box").innerHTML =
+"Tim's favorite lunch is " + Tim.lunch + ". Amy's is " + Amy.lunch;
+}
+
+window.onload  = function() {
+   //document.getElementById("box").innerHTML = Mealplanner.breakfast[2];
+}
+
+*/
+
+
+
+
+/*
+//Drawing a triangle with canvas:
+function draw() {
+  let canvas = document.getElementById('canvas');
+  if (canvas.getContext) {
+    let ctx = canvas.getContext('2d');
+
+    ctx.beginPath();
+    ctx.moveTo(75, 50);
+    ctx.lineTo(100, 75);
+    ctx.lineTo(100, 25);
+    ctx.fill();
+  }
+}
+*/
+
+
+
+
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>
