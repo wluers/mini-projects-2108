@@ -1,4 +1,4 @@
-#DTC 477 Practice Files
+# DTC 477 Practice Files
 ## The CMDC @ Washington State University Vancouver
 
 DTC 477 Advanced Multimedia Authoring builds on the HTML/CSS skills developed in DTC 355 and provides a broad look at the various tools, design approaches and scripting languages (such as HTML5, CSS3, Javascript and jQuery) for creating dynamic multimedia objects for a variety of platforms, including mobile phones and tablets.  The world of digital publishing is changing rapidly and this class seeks to respond creatively and analytically to these changes by introducing students to an array of skill sets.
