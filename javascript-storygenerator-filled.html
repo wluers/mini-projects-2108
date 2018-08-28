@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<style>
+#story {
+	width: 65%;
+	padding: 3%;
+	margin: 15% auto;
+	border: 2px solid black;
+	font-size: 1.5em;
+	}
+</style>
+
+
+</head>
+<body>
+<button onclick="makeStory()">story generator</button>
+<div id="story"></div>
+
+
+
+<script>
+
+
+
+    let story = document.getElementById('story');
+    //let story = document.querySelector('#story');
+	
+    function makeStory() {	
+
+    	let character = [],
+		object = [],
+		place = [];
+	
+	    character[0] = prompt('Name a character type.', 'a sad old man').toLowerCase(),
+		object[0] = prompt('Name an object.', 'a ring of  keys').toLowerCase(),
+	    place[0] = prompt('Name a generic place.','at the zoo').toLowerCase(),
+		character[1] = prompt('Name a character.', 'Helen').toLowerCase(),
+		object[1] = prompt('Another object?', 'a pen' ).toLowerCase(),
+		place[1] = prompt('Name a place.','Philadelphia').toLowerCase();
+
+
+	    story.innerHTML = `In <span style="text-transform:capitalize;">${place[1]}</span>, I met ${character[0]} who had ${object[1]} with magical powers. All you had to do was whisper \"<span style="text-transform:capitalize;">${character[1]}</span>\" and a creature named <span style="text-transform:capitalize;">${character[1]}</span> appeared ${place[0]} with a ${object[0]}. But neither the ${object[0]} nor <span style="text-transform:capitalize;">${character[1]}</span> had any magical powers as far as I could tell. So there we were, ${place[0]}, somewhere in <span style="text-transform:capitalize;">${place[1]}</span>. Me, ${character[0]} and <span style="text-transform:capitalize;">${character[1]}</span> staring at ${object[1]} and ${object[0]}.`;
+     }
+
+   
+
+</script>
+</body>
+</html>

@@ -19,6 +19,12 @@
 
       }
 
+      button {
+        position: fixed;
+        top: 2%;
+        right: 2%;
+      }
+
   </style>
 
 </head>
@@ -34,124 +40,71 @@
 
 <script> 
 
+
+  //WEEK 1
+  
+
   // statements, objects, function/methods(), dot
   //strings, math
-    /*
+  /* 
     alert('hello world');
     console.log('Hello World');
     document.write('Hello World');
-*/
+  */
 
  // explain dot syntax - methods and properties
 
      // variables
 
-   /*  let firstname;
+   /*
+    let firstname;
     firstname ="Nicholas";
     //document.write(firstname);
 
     firstname="Nick";
+    // Concatination
     document.write('<br>My name is ' + firstname);
-   */
+    document.write(`<br>My name is ${firstname}`);
+  */
 
 
-   //strings
-/*
-   let name = 'Hermione';
-   document.write(name.length);
-   document.write(name[0]);
-   let nameUpper = name.toUpperCase();
-   let nameLower = name.toLowerCase();
-  
-   name[0].toUpperCase();
-   name.slice(1).toLowerCase();
+   //strings  (counting index from 0)
 
-*/
+   //let name = 'Hermione';
+   //document.write(name.length);
+   //document.write(name[0]);
+   //document.write(name[3]);
+   
+   //document.write(name.toUpperCase());
+   //document.write(name.toLowerCase());
+   //document.write(name.slice(2, 6).toLowerCase());
 
-
- 
-
-  //numbers
-
-/*
-   let secondsInMinute = 60;
-   let minutesInHour = 60;
-   let secondsInHour = secondsInMinute * minutesInHour;
-   let hoursInDay = 24;
-   let secondsInDay= secondsInHour * hoursInDay;
-  document.write(secondsInHour);
-  document.write(secondsInDay);
- 
-
-*/
-// concatination with html 
-/*
-  document.write('The amount of second in an hour is ' + secondsInHour + '<br>');
-  document.write('The amount of second in a day is ' + secondsInDay+ '<br>');
-
-
- //document.write(name + ' says, "Let\'s start class!"')
-//document.write(`${name} says, "Let's start class!`)
-
-
-*/
-
-
-
-// comparison operator
-
-/*let x;
-let r=confirm("Press a button!");
-if (r==true)
-  {
-  x="You pressed OK!";
-  }
-else
-  {
-  x="You pressed Cancel!";
-  }
-document.write(x);
-
-*/
-
-/*let x;
-let r=prompt("What is your favorite primary color?");
-if (r=='green')
-  {
-  x="You pressed green.";
-  }
-else if r=='yellow')
-  {
-  x="You pressed yellow.";
-  }
-else
-  {
-  x="You pressed blue";
-  }
-document.write(x);
-
-*/
 
 
 
 
 // basic operators
 
-/*let doMath  =  2 + 3 * 2;
+/*
+let doMath  =  2 + 3 * 2;
 document.write(doMath);
 */
 
 // more operators ++ -- += -= *= /= %
-/*let score = 5;
+/*
+let score = 5;
 score+=100;
 document.write(score);
 */
 
 
-
-
 //comparison operators
-/*let x = 5;
+
+/*
+== === >= <=  != !== 
+
+let x = 5;
+
 if (x==8) {document.write('x===8 is true. <br>');}
 
 if (x!==8) {document.write('x!==8 is true.');}
@@ -159,13 +112,13 @@ if (x!==8) {document.write('x!==8 is true.');}
 */
 
 
-
-
 // comparison and conditionals
 
-/*let x;
+/*
+let x;
 let r = confirm("Press a button!");
-if (r==true)
+
+if (r == true)
   {
   x="You pressed OK!";
   }
@@ -176,8 +129,12 @@ else
 document.write(x);
 */
 
-/*let r = prompt("pick the number 0 or 1");
-if (r>0)
+
+
+/*
+
+let r = prompt("pick the number 0 or 1");
+if (r > 0)
   {
   x="You selected 1";
   }
@@ -185,10 +142,13 @@ else
   {
   x="You selected 0";
   }
+
 document.write(x);
 */
 
 /*
+Javascript Objects 
+
 let d = new Date();
 let time = d.getHours();
 
@@ -196,12 +156,9 @@ if (time > 12)
   {
   document.write("Good afternoon!");
   }
-  */
 
-// if else
+//if else
 
-/*let d = new Date();
-let time = d.getHours();
 if (time<20)
   {
   x="Good day";
@@ -211,11 +168,13 @@ else
   x="Good evening";
   }
 document.write(x);
-*/
+
+  */
+
+// if...else if conditionals
 
 /*
-let d = new Date();
-let time = d.getHours();
+
 if (time>=10 && time<=17)
   {
   x="Good day";
@@ -231,12 +190,13 @@ else
 document.write(x);
 */
 
+// Javascript Object Math
 
-// if...else if conditionals
 
 /*
   let i = Math.random() * 20;
-  document.write("the random number is " + i + '<br>') 
+  document.write("the random number is " + i + '<br>'); 
+
   if (i > 15) {
     document.write(i + " is greater than 15");
   }
@@ -249,6 +209,75 @@ document.write(x);
 */
 
 ///*
+
+
+/*
+// ARRAYS (Array Object) new Array
+
+let fruits = [ 
+"apples", 
+"bananas", 
+"oranges"
+];
+
+document.write("fruit #2: " + fruits[1]);
+
+let fruits = [];
+fruits[0] = "apples";
+fruits[1] = "bananas"; 
+fruits[2] = "oranges";
+
+document.write("fruit #1: " + fruits[0]);
+
+///
+*/
+
+
+
+//WEEK 2
+
+//More Arrays
+/*
+
+let fruits = [ 
+"apples", 
+"bananas", 
+"oranges"
+];
+
+fruits.push("Kiwi");  //add to end
+fruits.unshift("Lemon");//add to start
+document.write(fruits);
+
+///
+
+let fruits = [ 
+"apples", 
+"bananas", 
+"oranges"
+];
+
+fruits.pop(); //remove last
+fruits.shift(); //remove first
+document.write(fruits);
+
+
+///
+
+fruits = [
+    "Banana", 
+    "Orange", 
+    "Apple", 
+    "Mango"    ];
+
+for (let i = 0; i < fruits.length; i++) {
+ document.write("I like " + fruits[i] + ". <br>");
+}
+ */ 
+
+
+
+
 
 
 
@@ -365,53 +394,7 @@ console.log("Tails! Done flipping.");
 
 /*
 
-// ARRAYS
 
-let fruits = [ 
-"apples", 
-"bananas", 
-"oranges"
-];
-
-document.write("fruit #2: " + fruits[1]);
-
-///
-
-let fruits = [ 
-"apples", 
-"bananas", 
-"oranges"
-];
-
-fruits.push("Kiwi");  //add to end
-fruits.unshift("Lemon");//add to start
-document.write(fruits);
-
-///
-
-let fruits = [ 
-"apples", 
-"bananas", 
-"oranges"
-];
-
-fruits.pop(); //remove last
-fruits.shift(); //remove first
-document.write(fruits);
-
-
-///
-
-fruits = [
-    "Banana", 
-    "Orange", 
-    "Apple", 
-    "Mango"    ];
-
-for (let i = 0; i < fruits.length; i++) {
- document.write("I like " + fruits[i] + ". <br>");
-}
- */ 
 
 
  /*
@@ -672,7 +655,7 @@ function Mealplanner(breakfast, lunch, dinner, diet, indulgence) {
 
 
 
-
+/*
 
 function newPlan() {
 
@@ -753,6 +736,7 @@ user.createPlan();
 
 }
 
+*/
 
 
 /*

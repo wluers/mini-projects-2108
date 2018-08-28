@@ -77,10 +77,10 @@ button {
 	} 
 	
 	let colorcount = -1;
-	let usercolor = '#'+ Math.random().toString(16).substr(2,6); //prompt('Name your color:');
+	let randmcolor = '#'+ Math.random().toString(16).substr(2,6); //prompt('Name your color:');
 	
 	function  changeColors()  {
-		  let colors = [usercolor, 'green', 'blue', 'yellow', 'orange', 'purple'];
+		  let colors = [ randmcolor, 'green', 'blue', 'yellow', 'orange', 'purple'];
 	      let circles = document.getElementsByClassName('circle');
 		  
 	      colorcount++;
@@ -95,6 +95,7 @@ button {
 		 	let num2 = Math.round(Math.random() * 200);
 		 	let num3 = Math.round(Math.random() * 200);
 		 	//let num4 = Math.round(Math.random() * 200)+10;
+
 		    let thisCircle = circles[i]; 
 		    thisCircle.style.backgroundColor = randmcolor;
             thisCircle.style.top = num1 + 'px'; 
@@ -111,7 +112,7 @@ button {
 	} //closes the changeColors() function 
 
 	
-	
+	//setInterval(changeColors, 2000);
 
 
 </script>
