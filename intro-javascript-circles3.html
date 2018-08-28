@@ -25,7 +25,7 @@ body  {
   float: left;
   border: 2px solid black;
   position: relative;
-  opacity: .7;
+  opacity: 1;
   font-size: 2em;
   text-align: center;
   vertical-align: middle;
@@ -61,11 +61,10 @@ button {
   <div class="circle"></div>
 </div>
 
-
-<!--<script src="changes.js"></script>-->
 <script>
 
 	let wrapper = document.getElementById('wrapper');
+	//let wrapper = document.querySelector('#wrapper');
 	
 
 	function  setCircles()  {
@@ -94,17 +93,12 @@ button {
 		 	let num1 = Math.round(Math.random() * 200);
 		 	let num2 = Math.round(Math.random() * 200);
 		 	let num3 = Math.round(Math.random() * 200);
-		 	//let num4 = Math.round(Math.random() * 200)+10;
-
+		 	
 		    let thisCircle = circles[i]; 
 		    thisCircle.style.backgroundColor = randmcolor;
             thisCircle.style.top = num1 + 'px'; 
             thisCircle.style.left = num2 + 'px'; 
             thisCircle.style.zIndex = num3;
-
-            //thisCircle.style.width = num4 + 'px'; 
-		    //thisCircle.style.height= num4 + 'px'; 
-		    //thisCircle.style.borderRadius = num4 + 'px'; 
             
 		 }
                
@@ -112,7 +106,7 @@ button {
 	} //closes the changeColors() function 
 
 	
-	//setInterval(changeColors, 2000);
+	setInterval(changeColors, 2000);
 
 
 </script>
