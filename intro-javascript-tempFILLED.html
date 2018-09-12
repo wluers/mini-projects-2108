@@ -7,10 +7,18 @@
 	
 	<style>
 
-      #box {
+      /*#box {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 1%;
+      }*/
+
+      #box {
+        margin: 5%;
+        padding: 3%;
+        font-size: 1.2em;
+        width: 40%;
+        border: 1px solid black;
       }
 
       #box div {
@@ -33,7 +41,7 @@
      
     <div id="box"></div>
  <!-- <canvas id="canvas" width="200px" height="200px"></canvas>-->
-	<button onclick="newPlan()">CLICK</button>
+	<button onclick="fruits.forEach(makeSingular)">Click</button>
 
 
 
@@ -72,6 +80,10 @@
 
    //let name = 'Hermione';
    //document.write(name.length);
+
+
+
+   
    //document.write(name[0]);
    //document.write(name[3]);
    
@@ -81,19 +93,20 @@
 
 
 
-
-
 // basic operators
 
 /*
 let doMath  =  2 + 3 * 2;
+document.write(doMath);
+
+let doMath  =  (2 + 3) * 2;
 document.write(doMath);
 */
 
 // more operators ++ -- += -= *= /= %
 /*
 let score = 5;
-score+=100;
+score+=100; // score = score + 100;
 document.write(score);
 */
 
@@ -107,7 +120,11 @@ let x = 5;
 
 if (x==8) {document.write('x===8 is true. <br>');}
 
+if (x==="5") {document.write('x===8 is true. <br>');}
+
 if (x!==8) {document.write('x!==8 is true.');}
+
+if (x!=="5") {document.write('x!==8 is true.');}
 
 */
 
@@ -234,49 +251,6 @@ document.write("fruit #1: " + fruits[0]);
 
 
 
-//WEEK 2
-
-//More Arrays
-/*
-
-let fruits = [ 
-"apples", 
-"bananas", 
-"oranges"
-];
-
-fruits.push("Kiwi");  //add to end
-fruits.unshift("Lemon");//add to start
-document.write(fruits);
-
-///
-
-let fruits = [ 
-"apples", 
-"bananas", 
-"oranges"
-];
-
-fruits.pop(); //remove last
-fruits.shift(); //remove first
-document.write(fruits);
-
-
-///
-
-fruits = [
-    "Banana", 
-    "Orange", 
-    "Apple", 
-    "Mango"    ];
-
-for (let i = 0; i < fruits.length; i++) {
- document.write("I like " + fruits[i] + ". <br>");
-}
- */ 
-
-
-
 
 
 
@@ -287,7 +261,7 @@ for (let i = 0; i < fruits.length; i++) {
 // three different ways to declare a function
 
 function displayMessage() {
- alert("Hello World!");
+  alert("Hello World!");
 } 
 
 const displayMessage = function() {
@@ -308,8 +282,7 @@ function displayMessage(message){
 }
 
 // or as arrow function - refactored
-const displayMessage = message =>
-alert(message);
+const displayMessage = message => alert(message);
 
 displayMessage("Waz Up");
 
@@ -318,7 +291,12 @@ displayMessage("Waz Up");
 function displayMessage(message,tag){
 document.write('<' + tag + '>' + message + '</' + tag + '>');
 }
-displayMessage('Hello world!', 'h1');
+//displayMessage('Hello world!', 'h1');
+
+const displayMessage = (message,tag) => {
+document.write('<' + tag + '>' + message + '</' + tag + '>');
+}
+//displayMessage('Hello world!', 'h1');
 
 
 ////
@@ -329,7 +307,7 @@ function myFunction(a,b){
 }
 
 
-document.write("Your total is: " + myFunction(4,3));
+document.write(`Your total is: ${myFunction(4,3)}`);
 
 ///
 
@@ -338,10 +316,10 @@ show_a();
 
 function show_a()  {
    let a = 20; // local letiable
-   alert("Value of 'a' inside the function is " + a);
+   alert(`Value of 'a' inside the function is ${a}`);
    }
 
-alert("Value of 'a' outside the function is " + a);
+alert(`Value of 'a' outside the function is ${a}`);
 */
 
 //*/
@@ -406,7 +384,9 @@ nested functions  -  circles
  */
 
 
- /*
+
+/*
+
 
  // nested arrays - like a file cabinet, not like a relational database, but you could use tags
 
@@ -426,30 +406,58 @@ document.write("My favorite vegetable is " + vegetables[2]  + ". <br> "  );
 
 */
 
-/*function randomFoods() {
 
-  // explain innerHTML, problems with document.write()
-    let fullTxt = [];
+/*
+function randomFoods() {
+
+   
+   foods =  [
+      ["Banana", "Orange", "Apple", "Mango" ],
+      ["Bread", "Pasta", "Rice", "Potato" ],
+      ["Lettuce", "Pepper", "Cucumber", "Onion"  ]
+    ]
+
+    //let fruits = foods[0]; // 
+    //let starches = foods[1];
+    //let vegetables = foods[2];
+   
+   // empty array
+    let menu = [];
+
+
+   // for loop to add random items from each foods group
+
     for (let i = 0; i < foods.length; i++) {
-     let rnd = Math.floor(Math.random() * foods.length);
-     fullTxt[i] = foods[i][rnd]; 
+     let rnd = Math.floor(Math.random() * foods[i].length);
+      menu[i] = foods[i][rnd]; 
     }
 
-    document.getElementById('box').innerHTML = "Today eat: " + fullTxt;
 
-}
+  // innerHTML, problems with document.write()
+   
+   // ${menu} first
+
+    document.getElementById('box').innerHTML = `Today, eat: <em>${menu[0]}, ${menu[1]}, ${menu[2]}</em>`;
+
+    }
+
+randomFoods();
 */
 
 
+/*  //RANDOM GENERATOR
 
-/*  RANDOM GENERATOR
+let randomNum1 = Math.random();
+let randomNum2 = Math.random() * 20;
+let randomNum3 = Math.floor(Math.random() * 20);
+
 
         // random generator
        function getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
           }  
 
-        getRandomInt(0,10);
+        getRandomInt(5,10);
         
 */
 
@@ -461,8 +469,73 @@ document.write("My favorite vegetable is " + vegetables[2]  + ". <br> "  );
 
 //  ARRAY METHODS
 
-/*
 
+
+let box = document.querySelector('#box');
+
+let fruits = [ 
+"apples", 
+"bananas",
+"lemons", 
+"oranges"
+];
+
+fruits.push("kiwis");  //add to end
+fruits.unshift("melons");//add to start
+box.innerHTML = `the fruits array: <em>${fruits}</em>`;
+
+fruits.pop(); //remove last
+fruits.shift(); //remove first
+box.innerHTML += `<br>first and last removed:<em>${fruits}</em>`;
+
+let citrus = fruits.slice(2, 4);
+box.innerHTML += `<br>just citrus: ${citrus}`;
+
+fruits.splice(1, 0, "strawberries", "blueberries");
+box.innerHTML += `<br>add berries: <em>${fruits}</em>`;
+
+
+// Iterator
+//let singleFruit; // a global function
+//let singleFruits  = [];
+
+function makeSingular(item) {
+    let singleFruit = item.slice(0,-1); // a local function
+    if (singleFruit.slice(-2) == "ie") 
+      {singleFruit = singleFruit.slice(0,-2) + "y";}
+    box.innerHTML += `<em>${singleFruit}</em>, `;
+}
+box.innerHTML += `<br>plural to single: `;
+
+fruits.forEach(makeSingular);
+
+
+
+
+/*
+///
+
+// SLICE - take out portion
+let box = document.getElementById('box');
+let fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+let citrus = fruits.slice(1, 3);
+box.innerHTML = citrus;
+
+
+// SPLICE - add/remove items
+// array.splice(index, howmany-to-remove, item1, ....., itemX)
+
+let box = document.getElementById('box');
+let fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.splice(2, 1, "Lemon", "Kiwi");
+box.innerHTML = fruits;
+
+
+
+
+// Iterators
+
+/*
 // FOR EACH
 
 //<button onclick="numbers.forEach(addItems)">Try it</button>
@@ -512,26 +585,7 @@ box.innerHTML = fruits.sort(function() { return 0.5 - Math.random();}); // shuff
 */
 
 
-/*  
 
-// SLICE - take out portion
-let box = document.getElementById('box');
-let fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
-let citrus = fruits.slice(1, 3);
-box.innerHTML = citrus;
- */
-
-/*
-
-// SPLICE - add/remove items
-// array.splice(index, howmany-to-remove, item1, ....., itemX)
-
-
-let box = document.getElementById('box');
-let fruits = ["Banana", "Orange", "Apple", "Mango"];
-fruits.splice(2, 1, "Lemon", "Kiwi");
-box.innerHTML = fruits;
-*/
 
 /*
 
@@ -599,16 +653,13 @@ function everyFunction() {
 
 
 
-
-
-
 // Objects - objects create data storage around entities, arrays are like file cabinet, relational database searchable 
 
 /*
 let Mealplanner = {
   breakfast : ["tofu", "bagel", "yogurt"],
   lunch : "avocado sandwich",
-  dinner :  function() { alert("No meat!") }, 
+  dinner :  function() { alert("Anything but meat!") }, 
   diet : "vegetarian",
   indulgence : "bacon"
 };
@@ -642,6 +693,17 @@ function Mealplanner(breakfast, lunch, dinner, diet, indulgence) {
 }
 
 */
+
+
+
+
+
+
+
+
+
+
+
 
 //ES6 CLassses
 
