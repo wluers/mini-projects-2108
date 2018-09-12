@@ -121,9 +121,9 @@
     
    <script>
    
-   	var result;
+   	let result;
    	
-	var resultsArray =  [
+	let resultsArray =  [
 			['an exacto knife', 'img/exacto.png', 'You cut to the chase.'],
 			['a brush pen', 'img/brushpen.png', 'You create your own path.'],
 			['string', 'img/string.png', 'When you know how to unwind.'],
@@ -147,18 +147,18 @@
 
     function computeForm(form) {
         
-	  var qNum = 1;
-	  var active = 0;
-	  var analytical = 0;
-	  var expressive = 0;
-	  var inquisitive = 0;
-	  var outwardValue= 0;
-	  var inwardValue = 0;
+	  let qNum = 1;
+	  let active = 0;
+	  let analytical = 0;
+	  let expressive = 0;
+	  let inquisitive = 0;
+	  let outwardValue= 0;
+	  let inwardValue = 0;
       
 
 	  for (qNum = 1; qNum <= 4; qNum++) {
-		  var radio_inputs = document.forms['quiz'].elements['question'+ qNum];
-			   for (var i = 0; i < radio_inputs.length; i++) {
+		  let radio_inputs = document.forms['quiz'].elements['question'+ qNum];
+			   for (let i = 0; i < radio_inputs.length; i++) {
 				   if (radio_inputs[i].checked) {
 					  choice = radio_inputs[i].value;
 					  }  // closes condition on checked

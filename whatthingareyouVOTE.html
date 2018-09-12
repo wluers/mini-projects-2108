@@ -116,22 +116,22 @@
     
    <script>
    
-   	var result;
+   	let result;
 
     function computeForm(form) {
         
-        var qNum = 1;
-      	var scissors = 0;
-      	var ruler = 0;
-      	var pen = 0;
-      	var paper = 0;
-      	var choice;
+        let qNum = 1;
+      	let scissors = 0;
+      	let ruler = 0;
+      	let pen = 0;
+      	let paper = 0;
+      	let choice;
       
 
 	  for (qNum = 1; qNum <= 4; qNum++) {
-		  var radio_inputs = document.forms['quiz'].elements['question'+ qNum];
+		  let radio_inputs = document.forms['quiz'].elements['question'+ qNum];
 		  
-			   for (var i = 0; i < radio_inputs.length; i++) {
+			   for (let i = 0; i < radio_inputs.length; i++) {
 				   if (radio_inputs[i].checked) {
 					  choice = radio_inputs[i].value;
 					  }  // closes condition on checked
