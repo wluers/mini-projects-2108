@@ -470,7 +470,7 @@ let randomNum3 = Math.floor(Math.random() * 20);
 //  ARRAY METHODS
 
 
-
+/*
 let box = document.querySelector('#box');
 
 let fruits = [ 
@@ -509,7 +509,7 @@ box.innerHTML += `<br>plural to single: `;
 
 fruits.forEach(makeSingular);
 
-
+*/
 
 
 /*
@@ -659,40 +659,29 @@ function everyFunction() {
 let Mealplanner = {
   breakfast : ["tofu", "bagel", "yogurt"],
   lunch : "avocado sandwich",
-  dinner :  function() { alert("Anything but meat!") }, 
-  diet : "vegetarian",
-  indulgence : "bacon"
+  dinner :  function() { alert("Anything but meat!"); }, 
+  diet : "vegetarian"
 };
+*/
 
-//document.getElementById("box").innerHTML = Mealplanner.lunch;
-//document.getElementById("box").innerHTML = Mealplanner.breakfast[2];
+/*
+document.getElementById("box").innerHTML = `breakfast is ${Mealplanner.breakfast[2]}`;
+document.getElementById("box").innerHTML += `<br>lunch is ${Mealplanner.lunch}`;
 Mealplanner.dinner();
 */
 
-/*
-let breakfast = prompt("What is your favorite breakast food?"),
-    lunch = prompt("What is your favorite lunch food?"),
-    dinner = prompt("What is your favorite dinner food?"),
-    diet = prompt("What is your diet?");
-
-
-//document.getElementById("box").innerHTML = Mealplanner.lunch;
-//document.getElementById("box").innerHTML = Mealplanner.breakfast[2];
-document.write("Your favorite foods are: " + Mealplanner.breakfast + ", " + Mealplanner.lunch + ", " + Mealplanner.dinner);
-*/
 
 // Object Constructor - a function that uses an object type or template to construct a new object
 
-/*
-function Mealplanner(breakfast, lunch, dinner, diet, indulgence) {
+
+function Mealplanner(breakfast, lunch, dinner) {
     this.breakfast = breakfast;
     this.lunch = lunch;
     this.dinner = dinner;
-    this.diet = diet,
-    this.indulgence = indulgence
 }
 
-*/
+let myMeals = new Mealplanner('bagel', 'soup', 'chicken');
+document.getElementById("box").innerHTML = `breakfast is ${myMeals.breakfast}, lunch is ${myMeals.lunch}, dinner is ${myMeals.dinner}`;
 
 
 
