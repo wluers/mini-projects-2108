@@ -11,23 +11,25 @@
 
 	<script>
 
+	let imgArray = [
+              ['img/image1.jpg', 'This is a cloud.'],
+			  ['img/image2.jpg', 'This is another cloud.'],
+			  ['img/image3.jpg', 'Some more clouds.']			
+			];
+		
+
 	
 	$(document).ready(function(){   //this opens the document ready function
 	
 	
-		let imgArray = [
-              ['img/img1.jpg', 'This is a cloud.'],
-			  ['img/img2.jpg', 'This is another cloud.'],
-			  ['img/img3.jpg', 'Some more clouds.']			
-			];
 		
 		let i = 0;
 
 		
 		$('button').click(function() {
            
-			let imgUrl = imageArray[i][0];
-			let imgDescrip = imageArray[i][1];	
+			let imgUrl = imgArray[i][0];
+			let imgDescrip = imgArray[i][1];	
 
 			i++;
       
