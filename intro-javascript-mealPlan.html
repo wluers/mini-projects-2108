@@ -42,15 +42,7 @@
 
 function newMealPlan() {
 
-  document.getElementById("box").innerHTML = '';
-
-  let name = prompt("What is your name?", "Alex");
-  let protein = prompt("What are some your favorite proteins?", "steak, tuna, hamburger, tofu, cod, turkey, salmon, chicken, eggs");
-  let carb = prompt("What are your favorite carb?", "oatmeal, rice, noodles, sweet potatoes, potatoes, quinoa");
-  let veg = prompt("Favorite vegetables?", "asparagus, spinach, cauliflower, tomato, lettuce, kale, green beans");
-  let fruit = prompt("Favorite fruits?", "apple, stawberry, banana, mango, blueberries, raspberries");
-  let fat = prompt("What are some favorite fats?", "avocado, cheese, yogurt, cream, butter, olive oil");
-
+  
   //////CLASS
 
   class Mealplan  {
@@ -121,6 +113,17 @@ function newMealPlan() {
 
             
   } // closes Mealplan class
+
+
+
+  document.querySelector("#box").innerHTML = '';
+
+  let name = prompt("What is your name?", "Alex");
+  let protein = prompt("What are some your favorite proteins?", "steak, tuna, hamburger, tofu, cod, turkey, salmon, chicken, eggs");
+  let carb = prompt("What are your favorite carb?", "oatmeal, rice, noodles, sweet potatoes, potatoes, quinoa");
+  let veg = prompt("Favorite vegetables?", "asparagus, spinach, cauliflower, tomato, lettuce, kale, green beans");
+  let fruit = prompt("Favorite fruits?", "apple, stawberry, banana, mango, blueberries, raspberries");
+  let fat = prompt("What are some favorite fats?", "avocado, cheese, yogurt, cream, butter, olive oil");
 
 
 

@@ -7,6 +7,9 @@
 	
 	<style>
 
+      h1 {
+        text-align: center;
+      }
       #box {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -25,7 +28,7 @@
 </head>
 <body>
 
-     
+     <h1></h1>
     <div id="box"></div>
 
 	  <button onclick="newMealPlan()">CLICK</button>
@@ -70,18 +73,26 @@ let myMeals = new Mealplanner('bagel', 'soup', 'chicken');
 document.getElementById("box").innerHTML = `breakfast is ${myMeals.breakfast}, lunch is ${myMeals.lunch}, dinner is ${myMeals.dinner}`;
 */
 
+/*
+class Mealplanner {
+  constructor(breakfast, lunch, dinner) {
+    this._breakfast = breakfast;
+    this._lunch = lunch;
+    this._dinner = dinner;
+  }
+
+
+
+}
+
+
+*/
+
 
 
 function newMealPlan() {
 
-  document.getElementById("box").innerHTML = '';
 
-  let name = prompt("What is your name?", "Alex");
-  let protein = prompt("What are some your favorite proteins?", "steak, tuna, hamburger, tofu, cod, turkey, salmon, chicken, eggs");
-  let carb = prompt("What are your favorite carb?", "oatmeal, rice, noodles, sweet potatoes, potatoes, quinoa");
-  let veg = prompt("Favorite vegetables?", "asparagus, spinach, cauliflower, tomato, lettuce, kale, green beans");
-  let fruit = prompt("Favorite fruits?", "apple, stawberry, banana, mango, blueberries, raspberries");
-  let fat = prompt("What are some favorite fats?", "avocado, cheese, yogurt, cream, butter, olive oil");
 
   //////CLASS
 
@@ -119,9 +130,10 @@ function newMealPlan() {
         return this._fat.split(", ");
       }
 
+      /*
       set name(newName) {
         this._name = newName;   
-      }
+      }*/
   
 
       createPlan() {
@@ -154,12 +166,20 @@ function newMealPlan() {
             
   } // closes Mealplan class
 
+  document.getElementById("box").innerHTML = '';
 
+  let name = prompt("What is your name?", "Alex");
+  let protein = prompt("What are some your favorite proteins?", "steak, tuna, hamburger, tofu, cod, turkey, salmon, chicken, eggs");
+  let carb = prompt("What are your favorite carb?", "oatmeal, rice, noodles, sweet potatoes, potatoes, quinoa");
+  let veg = prompt("Favorite vegetables?", "asparagus, spinach, cauliflower, tomato, lettuce, kale, green beans");
+  let fruit = prompt("Favorite fruits?", "apple, stawberry, banana, mango, blueberries, raspberries");
+  let fat = prompt("What are some favorite fats?", "avocado, cheese, yogurt, cream, butter, olive oil");
 
       /////INSTANCE OF CLASS
 
       const user = new Mealplan(name, protein, carb, veg, fruit, fat);
       user.createPlan();
+    
 
 } // closes newMeaplan function
 
