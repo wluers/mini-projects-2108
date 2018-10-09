@@ -7,10 +7,6 @@
 	
 	<style>
 
-      h1 {
-        text-align: center;
-      }
-
       #box {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -18,8 +14,8 @@
       }
 
       #box div {
-         height: 150px;
-          padding: 2%;
+         height: 200px;
+          padding: 3%;
           border: 1px solid black;
 
       }
@@ -29,7 +25,7 @@
 </head>
 <body>
 
-    <h1></h1>
+     
     <div id="box"></div>
 
 	  <button onclick="newMealPlan()">CLICK</button>
@@ -38,6 +34,42 @@
 
 
 <script> 
+
+
+// Objects - objects create data storage around entities, arrays are like file cabinet, relational database searchable 
+
+/*
+let box = document.querySelector('#box');
+
+let Mealplanner = {
+  breakfast : ["tofu", "bagel", "yogurt"],
+  lunch : "avocado sandwich",
+  dinner :  function() { alert("No meat!"); }, 
+  diet : "vegetarian"
+};
+*/
+
+/*
+box.innerHTML = `breakfast is ${Mealplanner.breakfast[2]}`;
+box.innerHTML += `<br>lunch is ${Mealplanner.lunch}`;
+Mealplanner.dinner();
+*/
+
+
+// Object Constructor - a function that uses an object type or template to construct a new object
+
+/*
+
+function Mealplanner(breakfast, lunch, dinner) {
+    this.breakfast = breakfast;
+    this.lunch = lunch;
+    this.dinner = dinner;
+}
+
+let myMeals = new Mealplanner('bagel', 'soup', 'chicken');
+document.getElementById("box").innerHTML = `breakfast is ${myMeals.breakfast}, lunch is ${myMeals.lunch}, dinner is ${myMeals.dinner}`;
+*/
+
 
 
 function newMealPlan() {
@@ -130,6 +162,9 @@ function newMealPlan() {
       user.createPlan();
 
 } // closes newMeaplan function
+
+
+
 
 
 

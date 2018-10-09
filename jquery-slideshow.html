@@ -6,52 +6,8 @@
     <head>
 
     <title>jquery play template</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js">
-</script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 
-	<script>
-
-	let imgArray = [
-              ['img/image1.jpg', 'This is a cloud.'],
-			  ['img/image2.jpg', 'This is another cloud.'],
-			  ['img/image3.jpg', 'Some more clouds.']			
-			];
-		
-
-	
-	$(document).ready(function(){   //this opens the document ready function
-	
-	
-		
-		let i = 0;
-
-		
-		$('button').click(function() {
-           
-			let imgUrl = imgArray[i][0];
-			let imgDescrip = imgArray[i][1];	
-
-			i++;
-      
-            if (i % imgArray.length === 0) { i=0; }
-
-           // if(i >= imgArray.length){ i=0; }
-        
-        	$('#box').fadeOut('1000', function(){
-      			$(this).html('<img src="'+imgUrl+'" />');
-     		 }).fadeIn('1000');
-     		 
-     		$('p').html(imgDescrip);
-   	
-		});
-     
-
-
-	});  //this closes the document ready function
-	
-
-	
-	</script>
 
 
 	<style>
@@ -121,6 +77,63 @@
     <button>Click Me!</button>
   
     </div>
+
+
+
+    <script>
+
+	let imgArray = [
+              ['img/image1.jpg', 'This is a cloud.'],
+			  ['img/image2.jpg', 'This is another cloud.'],
+			  ['img/image3.jpg', 'Some more clouds.']			
+			];
+		
+
+	
+	$(document).ready(function(){   //this opens the document ready function
+	
+	
+		
+		let i = 0;
+
+		
+		$('button').click(function() {
+           
+			let imgUrl = imgArray[i][0];
+			let imgDescrip = imgArray[i][1];	
+
+			i++;
+            
+            
+          //if (i % imgArray.length === 0) { i=0; }
+
+            if(i >= imgArray.length){ i = 0; }
+        
+        	$('#box').fadeOut('1000', function(){
+      			$(this).html(`<img src="${imgUrl}">`);
+     		 }).fadeIn('1000');
+     		 
+     		$('p').html(imgDescrip);
+   	
+		});
+
+
+
+/*
+		function  repeat(speed) {
+          $('button').click();
+        }
+
+        setInterval(repeat, 2000);
+*/
+     
+
+
+	});  //this closes the document ready function
+	
+
+	
+	</script>
     
     </body>
 

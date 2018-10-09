@@ -90,12 +90,16 @@
 
 		// simple event with a function 
 
-/*
+
 		$("button").click(function() {
-			alert("You clicked a button.");
+			//alert("You clicked a button.");
 			//$('p').html("<em>Replaced Text</em>");
+			//$('p').append("<em>Text</em>");
+			//$('p').prepend("<div>Text inside and before content</div>");
+			//$('p div').before("<div>before element</div>");
+			//$('p div').after("<div>after element</div>");
 		});
-*/
+/**/
 
 
 /*
@@ -147,27 +151,29 @@ $("button").click(function(){
  */
 
 
-/*
 
+/*
 // anonymous function, each and this
 
 		$("button").click(function(){
 		  $("li").each(function(){
-		    alert($(this).text())
+		    //alert($(this).text());
+		    $('p').append($(this).text());
 		  });
 		});
 */
 
 /*
 // without chaining
-$("ul").fadeOut('fast');
 $("ul").css('font-size', '1.2em');
-$("ul").fadeIn(2000);
+$("ul").delay(2000);
+$("ul").fadeOut(2000);
+
 */
 
 /*
 // with chaining
-$("ul").delay(2000).fadeOut('fast').css('color', 'red').delay(2000).fadeIn(2000);
+$("ul").css('color', 'red').delay(2000).fadeOut(2000);
 */
 
 
