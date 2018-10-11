@@ -39,11 +39,7 @@
 
 <script> 
 
-
-function newMealPlan() {
-
-  
-  //////CLASS
+//////CLASS
 
   class Mealplan  {
     constructor(name, protein, carb, veg, fruit, fat) {
@@ -102,19 +98,19 @@ function newMealPlan() {
             document.querySelector("h1").innerHTML = `${this.name}'s Meal Plan`;
             document.querySelector("#box").innerHTML += `<div id="day${i+1}"><strong>Day ${i+1}</strong><br>Breakfast: ${this.fruit[randomFruit]}, ${this.fat[randomFat]}, ${this.carb[randomCarb]}<br>Lunch: ${this.protein[randomProtein]}, ${this.veg[randomVeg]}<br>Dinner: ${this.protein[randomProtein2]}, ${this.veg[randomVeg2]}, ${this.carb[randomCarb2]}, ${this.fat[randomFat2]}</div>`;
 
-            if ( i+1 === randomSpecial) { document.querySelector(`#day${i+1}`).innerHTML = `<strong>Day${i+1}</strong><br>Feast or Fast!`; }
+            if ( i+1 === randomSpecial) { document.querySelector(`#day${i+1}`).innerHTML = `<strong>Day${i+1}</strong><br>Feast!`; }
 
          } //closes loop
           
           document.querySelector("button").style.display = 'none';
 
-
       } // closes createPlan
-
-            
   } // closes Mealplan class
 
 
+
+
+function newMealPlan() {
 
   document.querySelector("#box").innerHTML = '';
 
@@ -124,8 +120,6 @@ function newMealPlan() {
   let veg = prompt("Favorite vegetables?", "asparagus, spinach, cauliflower, tomato, lettuce, kale, green beans");
   let fruit = prompt("Favorite fruits?", "apple, stawberry, banana, mango, blueberries, raspberries");
   let fat = prompt("What are some favorite fats?", "avocado, cheese, yogurt, cream, butter, olive oil");
-
-
 
       /////INSTANCE OF CLASS
 

@@ -50,6 +50,8 @@ let Mealplanner = {
   dinner :  function() { alert("No meat!"); }, 
   diet : "vegetarian"
 };
+
+Mealplanner.breakfast[2]
 */
 
 /*
@@ -70,6 +72,8 @@ function Mealplanner(breakfast, lunch, dinner) {
 }
 
 let myMeals = new Mealplanner('bagel', 'soup', 'chicken');
+myMeals.breakfast;
+
 document.getElementById("box").innerHTML = `breakfast is ${myMeals.breakfast}, lunch is ${myMeals.lunch}, dinner is ${myMeals.dinner}`;
 */
 
@@ -88,13 +92,7 @@ class Mealplanner {
 
 */
 
-
-
-function newMealPlan() {
-
-
-
-  //////CLASS
+//////CLASS
 
   class Mealplan  {
     constructor(name, protein, carb, veg, fruit, fat) {
@@ -154,7 +152,7 @@ function newMealPlan() {
             document.querySelector("h1").innerHTML = `${this.name}'s Meal Plan`;
             document.querySelector("#box").innerHTML += `<div id="day${i+1}"><strong>Day ${i+1}</strong><br>Breakfast: ${this.fruit[randomFruit]}, ${this.fat[randomFat]}, ${this.carb[randomCarb]}<br>Lunch: ${this.protein[randomProtein]}, ${this.veg[randomVeg]}<br>Dinner: ${this.protein[randomProtein2]}, ${this.veg[randomVeg2]}, ${this.carb[randomCarb2]}, ${this.fat[randomFat2]}</div>`;
 
-            if ( i+1 === randomSpecial) { document.querySelector(`#day${i+1}`).innerHTML = `<strong>Day${i+1}</strong><br>Feast or Fast!`; }
+            if ( i+1 === randomSpecial) { document.querySelector(`#day${i+1}`).innerHTML = `<strong>Day${i+1}</strong><br>Feast!`; }
 
          } //closes loop
           
@@ -165,6 +163,11 @@ function newMealPlan() {
 
             
   } // closes Mealplan class
+
+
+
+function newMealPlan() {
+
 
   document.getElementById("box").innerHTML = '';
 
