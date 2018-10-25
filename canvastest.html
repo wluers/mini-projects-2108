@@ -8,7 +8,12 @@
 
 	#myCanvas {
 		border: 1px solid black;
+		width: 600px;
+		height: 600px;
 	}
+
+	/*the height and width are the logical canvas dimensions used for drawing and are different from the style.height and style.width CSS attributes. If you don't set the CSS attributes, the intrinsic size of the canvas will be used as its display size; if you do set the CSS attributes, and they differ from the canvas dimensions, your content will be scaled in the browser. 
+	*/
 
 
    </style>
@@ -29,26 +34,33 @@
 			return Math.floor(Math.random() * (max - min + 1)) + min;
 		}  
 
-
+        // grab dom element
        	let c = document.getElementById("myCanvas");
+
+       	//context identifier defining the drawing context associated to the canvas - 2D, wbgl (3D)
 	    let ctx = c.getContext("2d");
 			
         
         function drawFace() {
 
+
+            // x and y coordinates for eyeballs
 	        let EyeballX = getRandomInt(150, 155),
 	        	EyeballY = getRandomInt(150, 155);
 	        	
-			
-	        ctx.clearRect(0, 0, ctx.width, ctx.height);//clear canvas
+			 //clear a rectangle of the canvas - wipe clean the slate for new drawing
+			 //context.clearRect(x,y,width,height);
+	        ctx.clearRect(0, 0, ctx.width, ctx.height);
+
     			
 
-             // start drawing
+             // beginPath() method begins a path, or resets the current path - start and stop at different points
 			ctx.beginPath();
 			
 
 	        // FACE
-            ctx.arc(200, 180, 160, 0, 2*Math.PI); // Mouth (clockwise)
+            ctx.arc(200, 180, 160, 0, 2*Math.PI); 
+            //	context.arc(x,y,radius,startAngle,endAngle,counterclockwise(optional));
             ctx.fillStyle = "yellow";
                 ctx.fill();
             ctx.lineWidth = 3;
@@ -57,12 +69,16 @@
                 // end drawing
 			ctx.closePath();
 
-              // start drawing
+
+
+
+              // start another drawing 
 			ctx.beginPath();
 
 	        // MOUTH
 			ctx.moveTo(150, 260);
-			ctx.arc(200, 260, 50, 0, Math.PI); // Mouth (clockwise)
+			ctx.arc(200, 260, 50, 0, Math.PI); 
+            // Mouth (clockwise)
 			ctx.fillStyle = "white";
             ctx.fill();
 
@@ -93,9 +109,10 @@
 
 
 			// Left Eyeball
-			//ctx.moveTo(180, 170);
+			ctx.moveTo(180, 170);
 			ctx.fillStyle = "black";
 			ctx.fillRect(EyeballX,EyeballY,5,5);
+			//context.fillRect(x,y,width,height);
 	
 
 			//Right Eyeball
@@ -120,8 +137,9 @@
     			ctx.fillStyle = "#ffffff";
                 ctx.fill();
 
-                drawFace();  
-    		   // requestAnimationFrame(animateFace);
+                drawFace();
+    		    //setTimeout(animateFace, 1000);
+    		    //requestAnimationFrame(animateFace);
     	}
 
     	setInterval(animateFace, 1000);

@@ -36,17 +36,14 @@
         			dataType: "jsonp",
         			success: function(response) {
         				console.log(response);
-        				//let weatherData = JSON.stringify(data);
-							//$('#show').html(weatherData);
-
-        				//let testField  = response.weather[0].description;
+        				
                         let description  = response.weather[0].description;
                         let temp  = response.main.temp;
                         let icon  = response.weather[0].icon;
                         let humidity  = response.main.humidity;
 
         					$('#show').html(`<img src="http://openweathermap.org/img/w/${icon}.png"> <br> Currently there is ${description}, the temperature is ${temp} and the humdidity is ${humidity}`);
-        			}
+        			} //closes function
 
         		});
 
