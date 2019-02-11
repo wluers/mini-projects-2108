@@ -227,6 +227,10 @@ document.write(x);
 
 
 
+
+
+
+
 /*
 // ARRAYS (Array Object) new Array
 
@@ -311,22 +315,29 @@ function myFunction(a,b){
 
 document.write(`Your total is: ${myFunction(4,3)}`);
 
-///
+/// */
 
-let a = 10;   // global variable
-show_a();
+
+// variable declaration introduces identifier (name)
+// intialization is when you asign a value to a declaration
+// scope defines where variable are accesible in program - globa;/local
+// hoisting order of functions and variables - variables hoisted to top
+
+/*let a = 10;   // global variable
+show_a(); // hositing
 
 function show_a()  {
-   let a = 20; // local letiable
+   let a = 20; // local variable
    alert(`Value of 'a' inside the function is ${a}`);
    }
 
 alert(`Value of 'a' outside the function is ${a}`);
 */
+// let is block-scoped and var is function-scoped
 
-//*/
 
-/// Call stack = single-threaded, one at a time, sequence on executing functions 
+
+// Call stack = single-threaded, one at a time, sequence on executing functions 
 //and "stack overflow" = too many calls , recursive
 
 /*function chicken()  {
@@ -363,7 +374,7 @@ i++;
 let coin = Math.floor(Math.random() * 2);
 while(coin === 0){
   console.log("Heads! Flipping again...");
-  let coin = Math.floor(Math.random() * 2);
+  coin = Math.floor(Math.random() * 2);
 }
 
 console.log("Tails! Done flipping.");
@@ -375,6 +386,7 @@ console.log("Tails! Done flipping.");
 /*
 
 
+//WEEK 3
 
 
  /*
@@ -465,7 +477,7 @@ let randomNum3 = Math.floor(Math.random() * 20);
 
 
 
-
+//WEEK 3
 
 
 
@@ -493,25 +505,11 @@ box.innerHTML += `<br>first and last removed:<em>${fruits}</em>`;
 let citrus = fruits.slice(2, 4);
 box.innerHTML += `<br>just citrus: ${citrus}`;
 
+
 fruits.splice(1, 0, "strawberries", "blueberries");
 box.innerHTML += `<br>add berries: <em>${fruits}</em>`;
 
 
-// Iterator
-//let singleFruit; // a global function
-//let singleFruits  = [];
-
-function makeSingular(item) {
-    let singleFruit = item.slice(0,-1); // a local function
-    if (singleFruit.slice(-2) == "ie") 
-      {singleFruit = singleFruit.slice(0,-2) + "y";}
-    box.innerHTML += `<em>${singleFruit}</em>, `;
-}
-box.innerHTML += `<br>plural to single: `;
-
-fruits.forEach(makeSingular);
-
-*/
 
 
 /*
@@ -535,7 +533,25 @@ box.innerHTML = fruits;
 
 
 
+// Iterator forEach acts on each item of an array with a function
+//let singleFruit; // a global function
+//let singleFruits  = [];
+
+function makeSingular(item) {
+    let singleFruit = item.slice(0,-1); // a local function
+    if (singleFruit.slice(-2) == "ie") 
+      {singleFruit = singleFruit.slice(0,-2) + "y";}
+    box.innerHTML += `<em>${singleFruit}</em>, `;
+}
+box.innerHTML += `<br>plural to single: `;
+
+fruits.forEach(makeSingular);
+
+*/
+
+
 // Iterators
+
 
 /*
 // FOR EACH
@@ -593,7 +609,7 @@ box.innerHTML = fruits.sort(function() { return 0.5 - Math.random();}); // shuff
 
 // FILTER
 let box = document.getElementById('box');
-var ages = [32, 33, 16, 40];
+let ages = [32, 33, 16, 40];
 
 function checkAdult(age) {
     return age >= 18;
@@ -608,7 +624,7 @@ function getAdults() {
 /*
 // MAP
 let box = document.getElementById('box');
-var numbers = [65, 44, 12, 4];
+let numbers = [65, 44, 12, 4];
 
 function multiplyArrayElement(num) {
     return num * 100;
