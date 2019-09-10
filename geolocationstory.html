@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>geolocation</title>
+    <!--turns off iOS reset of viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <style type="text/css">
+          .container {
+          max-width: 980px;
+          text-align: center;
+          margin: 20px auto;
+        }
+
+        h1 {
+          margin-bottom: 20px;
+        }
+
+        #geocoding_form {
+          margin: 40px auto 40px;
+        }
+
+        .input-group {
+          margin-left: 4%;
+        }
+
+        .find-me.btn:focus {
+          border-color: transparent;
+          outline: 0;
+        }
+
+        .coordinates {
+          font-size: 18px;
+          opacity: 0;
+          margin-bottom: 40px;
+        }
+
+        .no-browser-support {
+          font-size: 18px;
+          opacity: 0;
+        }
+
+        .coordinates b:first-child {
+          margin-right: 15px;
+        }
+
+        .visible {
+          opacity: 1;
+        }
+
+        .map-overlay {
+          max-width: 600px;
+          height: 400px;
+          margin: 0 auto;
+          
+          position: relative;
+          border-radius: 2px;
+        }
+
+        #map {
+          max-width: 550px;
+          height: 400px;
+          margin: 0 auto;
+          display: none;
+        }
+
+        #box {
+          width: 550px;
+          height: 400px;
+          margin: 0 auto;
+        }
+
+        img {
+          width: 100%;
+        }
+
+   </style>
+
+ <body>
+
+<div class="container">
+
+  <h1>Locative Fiction</h1>
+
+  <form id="geocoding_form" class="form-horizontal">
+    <div class="form-group">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <button type="button" class="find-me btn btn-info btn-block">Where am I?</button>
+      </div>
+    </div>
+  </form>
+
+  <!--<p class="no-browser-support">Sorry, the Geolocation API isn't supported in Your browser.</p>
+  <p class="coordinates">Latitude: <b class="latitude">42</b> Longitude: <b class="longitude">32</b></p>-->
+
+  
+    <div id="map"></div>
+    <div id="box"></div>
+
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script>
+
+  var findMeButton = $('.find-me');
+
+  // Check if the browser has support for the Geolocation API
+  if (!navigator.geolocation) {
+
+    findMeButton.addClass("disabled");
+    $('.no-browser-support').addClass("visible");
+
+  } else {
+
+    findMeButton.on('click', function(e) {
+
+      e.preventDefault();
+
+      navigator.geolocation.getCurrentPosition(function(position) {
+
+        // Get the coordinates of the current possition.
+        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;
+
+        $('.latitude').text(lat.toFixed(3));
+        $('.longitude').text(lng.toFixed(3));
+        $('.coordinates').addClass('visible');
+
+       
+
+     //   if(lng > -122.630175 && lng < -122.629794 && lat > 45.544089 && lat < 45.544211) { $('#box').html('we begin the story here.')};
+
+       /* ne 45.537754, -122.620988
+        nw 45.537747, -122.621913
+        se 45.537295, -122.620985
+        sw 45.537279, -122.621911 */
+        //45.537652, -122.621060
+
+       if(lng > -122.620988 && lng < -122.621913 && lat > 45.537279 && lat < 45.537754) { 
+          alert('in the cafe');
+          $('#box').html('you are at the cafe.');
+        }
+        else {$('#box').html('you are NOT in the cafe.');}
+
+      /* if(lng > -122.621 && lng < -122.622 && lat > 45.537 && lat < 45.538) { $('#box').html('you are in the cafe.');}
+       else {$('#box').html('you are NOT in the cafe.');}*/
+
+       alert(`lat is ${lat} and lng is ${lng}`);
+
+     
+
+       });
+
+    });
+
+  }
+
+  </script>
+
+</body>
+</head>
+
+
+
+

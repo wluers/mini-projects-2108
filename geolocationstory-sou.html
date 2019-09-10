@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>geolocation</title>
+    <!--turns off iOS reset of viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <style type="text/css">
+         body {
+          font-size: 26px;
+         }
+
+          .container {
+          max-width: 980px;
+          text-align: center;
+          margin: 20px auto;
+        }
+
+        h1 {
+          margin-bottom: 20px;
+          line-height: 1;
+        }
+
+
+        .coordinates {
+          font-size: 18px;
+          opacity: 0;
+          margin-bottom: 40px;
+        }
+
+        .no-browser-support {
+          font-size: 18px;
+          opacity: 0;
+        }
+
+        .coordinates b:first-child {
+          margin-right: 15px;
+        }
+
+
+        #box {
+          width: 90%;
+          margin: 0 auto;
+        }
+
+        button {
+          margin: 0 auto;
+          font-size: .8em;
+          border-radius: 10px;
+          padding: 10px;
+        }
+
+       img {
+          width: 100%;
+        }
+
+   </style>
+
+ <body>
+
+<div class="container">
+
+  <h1>SOU Locative Fiction</h1>
+
+    <button onclick="checkLocation()">Where am I?</button>
+    <div id="box"></div>
+
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script>
+  //variables for places and their geolocation - lng/lat (opposite of Google Maps which is lat/lng - just add all your spots here)
+   let hannonLib = [-122.695131, 42.185067]; // [lng lat]
+   let musicBldg = [-122.698750, 42.186643]; 
+   let theaterArts = [-122.698031, 42.186023]; 
+   let souBookstore = [-122.696293, 42.187160]; 
+   let taylorHall = [-122.696905, 42.186389];
+
+
+   // function to calculate distance from current location to mapped point 
+   function distance(lon1, lat1, lon2, lat2) {
+          var R = 6371; // Radius of the earth in km
+          var dLat = (lat2-lat1).toRad();  // Javascript functions in radians
+          var dLon = (lon2-lon1).toRad(); 
+          var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                  Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) * 
+                  Math.sin(dLon/2) * Math.sin(dLon/2); 
+          var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+          var d = (R * c)*1000; // Distance in meters
+          return d;
+        }
+
+
+        /** Converts numeric degrees to radians */
+        if (typeof(Number.prototype.toRad) === "undefined") {
+          Number.prototype.toRad = function() {
+            return this * Math.PI / 180;
+          }
+        }
+
+
+    /// check location function   
+
+    function checkLocation() {
+
+         if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(pos) {
+       
+          let distanceLib = distance(pos.coords.longitude, pos.coords.latitude, hannonLib[0], HannonLib[1]); 
+        
+          let distanceMusic = distance(pos.coords.longitude, pos.coords.latitude, musicBldg[0], musicBldg[1]);
+
+          let distanceTheater = distance(pos.coords.longitude, pos.coords.latitude, theaterArts[0], theaterArts[1]);
+
+          let distanceBookstore = distance(pos.coords.longitude, pos.coords.latitude, souBookstore[0], souBookstore[1]);
+
+          let distanceTaylor = distance(pos.coords.longitude, pos.coords.latitude, taylorHall[0], taylorHall[1]);
+
+
+
+          // check locations - these conditionals trigger the text to appear on the page at the location and will only be replace at the next location. In the <div> you can add images, video and audio - anything html. 
+          if (distanceLib < 20) { 
+            $('#box').html('<div>You are at the Hannon Library.</div>');
+             }
+          else if (distanceMusic < 20) { 
+            $('#box').html('<div><p>You are at the Music Building.</p></div>');
+             }
+           else if (distanceTheater < 20) { 
+            $('#box').html('<div><p>You are at the Theater Arts department.</p></div>');
+             }
+           else if (distanceBookstore < 20) { 
+            $('#box').html('<div><p>You are at the SOUS Bookstore.</p></div>');
+             }
+          else if (distanceTaylor < 20) { 
+            $('#box').html('<div>You are at Taylor Hall.</div>');
+             }
+          else {$('#box').append('');} // this adds an empty string when no place is nearby
+
+        },
+        function error(msg) {alert('Please enable your GPS position feature.');},
+        {maximumAge:10000, timeout:5000, enableHighAccuracy: true});
+        } else {
+            alert("Geolocation API is not supported in your browser.");
+        }
+
+        setTimeout(checkLocation,10000); //this checks the location every ten seconds
+ 
+
+    }  // closes check location
+
+    checkLocation();
+        
+
+  </script>
+
+</body>
+</head>
+
+
+
+

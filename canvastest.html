@@ -56,8 +56,6 @@
 
              // beginPath() method begins a path, or resets the current path - start and stop at different points
 			ctx.beginPath();
-			
-
 	        // FACE
             ctx.arc(200, 180, 160, 0, 2*Math.PI); 
             //	context.arc(x,y,radius,startAngle,endAngle,counterclockwise(optional));
@@ -66,21 +64,22 @@
             ctx.lineWidth = 3;
             ctx.strokeStyle = "black";
             ctx.stroke();
-                // end drawing
+                // end drawing of head
 			ctx.closePath();
 
 
 
 
-              // start another drawing 
+              // start another drawing for mouth (half circle)
 			ctx.beginPath();
-
 	        // MOUTH
 			ctx.moveTo(150, 260);
 			ctx.arc(200, 260, 50, 0, Math.PI); 
             // Mouth (clockwise)
 			ctx.fillStyle = "white";
             ctx.fill();
+            // end drawing of mouth
+			ctx.closePath();
 
             // Left Eye
 			ctx.moveTo(170, 150);
@@ -123,19 +122,15 @@
 
 			// Make lines visible
 			ctx.stroke();
-
-           // end drawing
-			ctx.closePath();
-
             
-    	}
+    	} // end drawFace function
 
   
+
+         // function to run to redraw face
     	function animateFace() {
 
     			ctx.clearRect(0, 0, ctx.width, ctx.height);//clear canvas
-    			ctx.fillStyle = "#ffffff";
-                ctx.fill();
 
                 drawFace();
     		    //setTimeout(animateFace, 1000);
@@ -144,6 +139,7 @@
 
     	setInterval(animateFace, 1000);
 
+        
         //animateFace();
             
 	

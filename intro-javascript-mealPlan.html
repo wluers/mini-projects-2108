@@ -98,7 +98,7 @@
             document.querySelector("h1").innerHTML = `${this.name}'s Meal Plan`;
             document.querySelector("#box").innerHTML += `<div id="day${i+1}"><strong>Day ${i+1}</strong><br>Breakfast: ${this.fruit[randomFruit]}, ${this.fat[randomFat]}, ${this.carb[randomCarb]}<br>Lunch: ${this.protein[randomProtein]}, ${this.veg[randomVeg]}<br>Dinner: ${this.protein[randomProtein2]}, ${this.veg[randomVeg2]}, ${this.carb[randomCarb2]}, ${this.fat[randomFat2]}</div>`;
 
-            if ( i+1 === randomSpecial) { document.querySelector(`#day${i+1}`).innerHTML = `<strong>Day${i+1}</strong><br>Feast!`; }
+            if ( i+1 === randomSpecial) { document.querySelector(`#day${i+1}`).innerHTML = `<strong>Day${i+1}</strong><br>Cake and Ice Cream!`; }
 
          } //closes loop
           
@@ -115,11 +115,11 @@ function newMealPlan() {
   document.querySelector("#box").innerHTML = '';
 
   let name = prompt("What is your name?", "Alex");
-  let protein = prompt("What are some your favorite proteins?", "steak, tuna, hamburger, tofu, cod, turkey, salmon, chicken, eggs");
-  let carb = prompt("What are your favorite carb?", "oatmeal, rice, noodles, sweet potatoes, potatoes, quinoa");
-  let veg = prompt("Favorite vegetables?", "asparagus, spinach, cauliflower, tomato, lettuce, kale, green beans");
+  let protein = prompt("What are some your favorite proteins?",  "steak, turkey, salmon, chicken, eggs");
+  let carb = prompt("What are your favorite carbs?", "oatmeal, rice, sweet potatoes, bread");
+  let veg = prompt("Favorite vegetables?", "asparagus, spinach, tomato, lettuce, green beans");
   let fruit = prompt("Favorite fruits?", "apple, stawberry, banana, mango, blueberries, raspberries");
-  let fat = prompt("What are some favorite fats?", "avocado, cheese, yogurt, cream, butter, olive oil");
+  let fat = prompt("What are some favorite fats?", "avocado, cheese, yogurt, butter, olive oil");
 
       /////INSTANCE OF CLASS
 

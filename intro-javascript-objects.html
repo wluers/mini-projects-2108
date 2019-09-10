@@ -28,12 +28,13 @@
 </head>
 <body>
 
-     <h1></h1>
-    <div id="box"></div>
-
-	  <button onclick="newMealPlan()">CLICK</button>
+  <button onclick="newMealPlan()">CLICK</button>
 
 
+  <h1></h1>
+  <div id="box"></div>
+
+	  
 
 
 <script> 
@@ -45,20 +46,23 @@
 let box = document.querySelector('#box');
 
 let Mealplanner = {
-  breakfast : ["tofu", "bagel", "yogurt"],
-  lunch : "avocado sandwich",
-  dinner :  function() { alert("No meat!"); }, 
+  breakfast : ["eggs", "bagel", "yogurt"],
+  lunch : ["avocado sandwich", "soup","cheese and fruit"],
+  dinner :  function() { alert("Moo! (no meat)"); }, 
   diet : "vegetarian"
 };
 
-Mealplanner.breakfast[2]
+
+
+box.innerHTML = `breakfast is ${Mealplanner.breakfast[2]}`;
+box.innerHTML += `<br>lunch is ${Mealplanner.lunch[1]}`;
+Mealplanner.dinner();
+
 */
 
-/*
-box.innerHTML = `breakfast is ${Mealplanner.breakfast[2]}`;
-box.innerHTML += `<br>lunch is ${Mealplanner.lunch}`;
-Mealplanner.dinner();
-*/
+
+
+
 
 
 // Object Constructor - a function that uses an object type or template to construct a new object
@@ -72,9 +76,10 @@ function Mealplanner(breakfast, lunch, dinner) {
 }
 
 let myMeals = new Mealplanner('bagel', 'soup', 'chicken');
-myMeals.breakfast;
+
 
 document.getElementById("box").innerHTML = `breakfast is ${myMeals.breakfast}, lunch is ${myMeals.lunch}, dinner is ${myMeals.dinner}`;
+
 */
 
 /*
@@ -89,10 +94,11 @@ class Mealplanner {
 
 }
 
-
 */
 
-//////CLASS
+
+
+///CLASS
 
   class Mealplan  {
     constructor(name, protein, carb, veg, fruit, fat) {
@@ -104,6 +110,8 @@ class Mealplanner {
       this._fat = fat;
       }
 
+
+  ///GETTERS
       get name() {
         return this._name;
       }
@@ -128,16 +136,17 @@ class Mealplanner {
         return this._fat.split(", ");
       }
 
-      /*
+    
+
+  ///SETTERS
       set name(newName) {
         this._name = newName;   
-      }*/
+      }
   
 
       createPlan() {
-      
-        for (let i = 0; i <= 6; i++){
-          let randomProtein = Math.floor(Math.random() * (this.protein.length-1) ),
+               
+           let randomProtein = Math.floor(Math.random() * (this.protein.length-1) ),
            randomProtein2 = Math.floor(Math.random() * (this.protein.length-1) ),
            randomCarb = Math.floor(Math.random() * (this.carb.length-1) ),
            randomCarb2 = Math.floor(Math.random() * (this.carb.length-1) ),
@@ -148,43 +157,41 @@ class Mealplanner {
            randomFat = Math.floor(Math.random() * (this.fat.length-1) ),
            randomFat2 = Math.floor(Math.random() * (this.fat.length-1) ),
            randomSpecial = Math.floor(Math.random() * 7);
+           
       
             document.querySelector("h1").innerHTML = `${this.name}'s Meal Plan`;
             document.querySelector("#box").innerHTML += `<div id="day${i+1}"><strong>Day ${i+1}</strong><br>Breakfast: ${this.fruit[randomFruit]}, ${this.fat[randomFat]}, ${this.carb[randomCarb]}<br>Lunch: ${this.protein[randomProtein]}, ${this.veg[randomVeg]}<br>Dinner: ${this.protein[randomProtein2]}, ${this.veg[randomVeg2]}, ${this.carb[randomCarb2]}, ${this.fat[randomFat2]}</div>`;
 
-            if ( i+1 === randomSpecial) { document.querySelector(`#day${i+1}`).innerHTML = `<strong>Day${i+1}</strong><br>Feast!`; }
+            if ( i+1 === randomSpecial) { document.querySelector(`#day${i+1}`).innerHTML = `<strong>Day${i+1}</strong><br>Eat Cake and Ice Cream!`; }
 
          } //closes loop
           
           document.querySelector("button").style.display = 'none';
 
-
       } // closes createPlan
-
-            
   } // closes Mealplan class
+
 
 
 
 function newMealPlan() {
 
-
-  document.getElementById("box").innerHTML = '';
+  document.querySelector("#box").innerHTML = '';
 
   let name = prompt("What is your name?", "Alex");
-  let protein = prompt("What are some your favorite proteins?", "steak, tuna, hamburger, tofu, cod, turkey, salmon, chicken, eggs");
-  let carb = prompt("What are your favorite carb?", "oatmeal, rice, noodles, sweet potatoes, potatoes, quinoa");
-  let veg = prompt("Favorite vegetables?", "asparagus, spinach, cauliflower, tomato, lettuce, kale, green beans");
+  let protein = prompt("What are some your favorite proteins?",  "steak, turkey, salmon, chicken, eggs");
+  let carb = prompt("What are your favorite carbs?", "oatmeal, rice, sweet potatoes, bread");
+  let veg = prompt("Favorite vegetables?", "asparagus, spinach, tomato, lettuce, green beans");
   let fruit = prompt("Favorite fruits?", "apple, stawberry, banana, mango, blueberries, raspberries");
-  let fat = prompt("What are some favorite fats?", "avocado, cheese, yogurt, cream, butter, olive oil");
+  let fat = prompt("What are some favorite fats?", "avocado, cheese, yogurt, butter, olive oil");
 
       /////INSTANCE OF CLASS
 
       const user = new Mealplan(name, protein, carb, veg, fruit, fat);
       user.createPlan();
-    
 
 } // closes newMeaplan function
+
 
 
 

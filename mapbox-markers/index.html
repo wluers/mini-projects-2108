@@ -65,11 +65,13 @@
 
         button  {
            position: absolute;
-           top: 1%;
-           right: 1%;
-           font-size: 2em;
+           top: 8%;
+           right: 2%;
+           font-size: .8em;
            padding: 1%;
            z-index: 10;
+           background: white;
+           display: none;
         }
 
         .marker {
@@ -96,7 +98,7 @@
     <header><h1>WSU Map</h1></header>
 	<div id="map-container">
 	   <div id='map'></div>
-       <button>X</button>
+       <button>RESET MAP</button>
 	</div>
     <div id="content-container">
        <div id='content'>
@@ -153,7 +155,8 @@
 	
 	let map = new mapboxgl.Map({
 		container: 'map',
-		style: 'mapbox://styles/mapbox/satellite-v9',
+		style: 'mapbox://styles/wluers/cjs0x705m06t81fmqlxmfelql',
+        //style: 'mapbox://styles/wluers/cjs0x705m06t81fmqlxmfelql',
 		center: [-119.262833, 46.329140], // starting position [lng, lat]
     	zoom: 5 // starting zoom
 	});
@@ -173,6 +176,7 @@
                 zoom: 18
             });
             window.location = marker.properties.url;
+            $('button').delay(3000).fadeIn(1000);
         });
 
         
@@ -185,14 +189,27 @@
             .addTo(map);
 
 
-        map.on('dblclick', function() {
-            map.setCenter([-119.262833, 46.329140]);
-            map.setZoom(5);
-        });
-
-    });
+    }); // end Marker settings
 
 
+    // disable map zoom when using scroll
+    map.scrollZoom.disable();
+
+
+
+    // doc ready to use jQuery
+   $(document).ready(function(){
+
+      // zoom out and reset center with jQuery
+      $('button').on('click', function() {
+          map.setZoom(5);
+          map.setCenter([-119.262833, 46.329140]);
+          $(this).fadeOut(1000);
+      })
+
+
+
+   }); //close doc ready for jQuery
 
 
 

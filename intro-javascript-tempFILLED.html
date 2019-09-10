@@ -39,7 +39,7 @@
 <body>
 <!--<body onload="draw();">-->
      
-   <!-- <div id="box"></div> -->
+   <div id="box"></div>
  <!-- <canvas id="canvas" width="200px" height="200px"></canvas>-->
 <!--<button onclick="fruits.forEach(makeSingular)">Click</button>-->
     <button>Click</button>
@@ -228,11 +228,11 @@ document.write(x);
 
 
 
-
-
-
 /*
 // ARRAYS (Array Object) new Array
+
+let fruits = new Array();
+let fruits = [];
 
 let fruits = [ 
 "apples", 
@@ -249,8 +249,29 @@ fruits[2] = "oranges";
 
 document.write("fruit #1: " + fruits[0]);
 
-///
 */
+
+/*
+
+ // nested arrays - like a file cabinet, not like a relational database
+
+foods =  [
+      ["Banana", "Orange", "Apple", "Mango"    ],
+      ["Bread", "Pasta", "Rice", "Potato"    ],
+      ["Lettuce", "Pepper", "Cucumber", "Onion"  ]
+    ];
+
+let fruits = foods[0]; // 
+let starches = foods[1];
+let vegetables = foods[2];
+
+document.write(`My favorite fruit is ${fruits[2]}<br>`);
+document.write(`My favorite starch is ${starches[2]}<br>`);
+document.write(`My favorite vegetable is ${vegetables[2]}<br>`);
+
+*/
+
+
 
 
 
@@ -281,7 +302,7 @@ const displayMessage = () => {
 
 displayMessage();
 
-/////
+///// PARAMETERS
 
 function displayMessage(message){
  alert(message);
@@ -399,26 +420,17 @@ nested functions  -  circles
 
 
 
-/*
 
 
- // nested arrays - like a file cabinet, not like a relational database, but you could use tags
 
-foods =  [
-      ["Banana", "Orange", "Apple", "Mango"    ],
-      ["Bread", "Pasta", "Rice", "Potato"    ],
-      ["Lettuce", "Pepper", "Cucumber", "Onion"  ]
-    ]
-// foods[2][] = 
+// Putting it all together. 
+  // innerHTML, problems with document.write() - add #box in body
 
-let fruits = foods[0]; // 
-let starches = foods[1];
-let vegetables = foods[2];
 
-document.write("My favorite food is " + starches[2]  + ". <br> "  );
-document.write("My favorite vegetable is " + vegetables[2]  + ". <br> "  );
+   //document.getElementById('box')
+  //document.querySelector('#box');
+  
 
-*/
 
 
 /*
@@ -447,7 +459,6 @@ function randomFoods() {
     }
 
 
-  // innerHTML, problems with document.write()
    
    // ${menu} first
 
@@ -479,10 +490,50 @@ let randomNum3 = Math.floor(Math.random() * 20);
 
 //WEEK 3
 
+//STRING METHODS
+
+// .split
+/*let pets = "dogs, cats, birds, fish";
+let petsArray = pets.split(",");
+document.write(petsArray[0]);
+
+let string = "I have a lot of pets";
+let stringArray = string.split(" ");
+document.write(stringArray);*/
+
+
+
+
+// REGEX BASICS
+
+// new line after period: $ \.
+// to break line replace with:  \.\n 
+// comma at beginning of line ^
+// replace with "
+// comma at end of line $
+// replace with ",
+// remove line breaks \n\s+
+
+
+
+
+
+
+
+
+// WEEK 4
+//add event listener element.addEventListener(event, function, useCapture);
+
+/*document.querySelector("button").addEventListener("click", displayMessage);
+
+function displayMessage() {
+document.querySelector('#box').innerHTML += "Here is a message<br>";
+}*/
+
+
 
 
 //  ARRAY METHODS
-
 
 /*
 let box = document.querySelector('#box');
@@ -510,8 +561,6 @@ fruits.splice(1, 0, "strawberries", "blueberries");
 box.innerHTML += `<br>add berries: <em>${fruits}</em>`;
 
 
-
-
 /*
 ///
 
@@ -529,6 +578,14 @@ let box = document.getElementById('box');
 let fruits = ["Banana", "Orange", "Apple", "Mango"];
 fruits.splice(2, 1, "Lemon", "Kiwi");
 box.innerHTML = fruits;
+
+
+
+
+
+
+
+
 
 
 
@@ -553,10 +610,12 @@ fruits.forEach(makeSingular);
 // Iterators
 
 
-/*
+
 // FOR EACH
 
 //<button onclick="numbers.forEach(addItems)">Try it</button>
+
+
 
 let box = document.getElementById('box');
 let sum = 0;
@@ -567,7 +626,9 @@ function addItems(item) {
     box.innerHTML = sum;
 }
 
-*/
+numbers.forEach(addItems);
+
+
 
 /*
 
@@ -669,12 +730,30 @@ function everyFunction() {
 }
 */
 
+// THIS
+/*document.querySelector("button").addEventListener("click", disappear);
+
+function disappear() {
+  this.style.display ='none';
+}*/
 
 
 
 
+// OBJECTS INTRO
+/*var person = {
+  firstName:"Margie", 
+  lastName:"Pepper", 
+  age:50, 
+  eyeColor:"blue",
+  fullName:  function() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+};
+box.innerHTML = person.fullName();
+*/
 
-//WEEK 3
+//WEEK 5
 
 // Objects - objects create data storage around entities, arrays are like file cabinet, relational database searchable 
 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drawing Triangles</title>
+</head>
+<body>
+	<button onclick="drawTriangle()">Draw Triangle</button>
+    <canvas id="myCanvas" width="1000" height="800" style="margin:5%;"></canvas>
+
+ 
+    <script>
+     
+     let x = -50;
+     let y = 50;
+     let color = ['red', 'yellow', 'blue', 'green'];
+     let i = -1;
+     
+     function drawTriangle() {
+   
+     	x+=150;
+     	if (x > 700)
+     		{x = 100; y+=150;}
+     	i++;
+     	if (i > color.length-1)
+     		{i = 0;}
+    	var canvasElement = document.querySelector("#myCanvas");
+		var context = canvasElement.getContext("2d");
+		 
+		// drawing the triangle
+		context.beginPath();
+		context.moveTo(x, y);
+		context.lineTo(x-50, y+100);
+		context.lineTo(x+50, y+100);
+		context.closePath();
+		 
+		// the stroke of triangle
+		context.lineWidth = 10;
+		context.strokeStyle = '#000000';
+		context.stroke();
+
+        // random selection from color array
+		//i = Math.floor(Math.random()*color.length); 
+		//alert(i);
+		 
+		// fill color of triangle - selected from color array
+		context.fillStyle = color[i];
+		context.fill();
+
+	}
+
+ 
+    </script>
+ 
+</body>
+</html>

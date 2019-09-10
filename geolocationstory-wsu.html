@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>geolocation wsu</title>
+    <!--turns off iOS reset of viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <style type="text/css">
+         body {
+          font-size: 26px;
+         }
+
+          .container {
+          max-width: 980px;
+          text-align: center;
+          margin: 20px auto;
+        }
+
+        h1 {
+          margin-bottom: 20px;
+          line-height: 1;
+        }
+
+
+        .coordinates {
+          font-size: 18px;
+          opacity: 0;
+          margin-bottom: 40px;
+        }
+
+        .no-browser-support {
+          font-size: 18px;
+          opacity: 0;
+        }
+
+        .coordinates b:first-child {
+          margin-right: 15px;
+        }
+
+
+        #box {
+          width: 90%;
+          margin: 0 auto;
+        }
+
+        button {
+          margin: 0 auto;
+          font-size: .8em;
+          border-radius: 10px;
+          padding: 10px;
+        }
+
+       img {
+          width: 100%;
+        }
+
+   </style>
+
+ <body>
+
+<div class="container">
+
+  <h1>Geolocation</h1>
+
+    <button onclick="checkLocation()">Where am I?</button>
+    <div id="box"></div>
+
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script>
+  //variables for places and their geolocation - lng/lat (opposite of Google Maps which is lat/lng - just add all your spots here)
+   let vmmc = [-122.636962, 45.730550]; // 45.730550, -122.636962
+   let firstenberg = [-122.636870, 45.730953]; 
+   let crosswalk = [-122.637409, 45.730405]; 
+   
+   // function to calculate distance from current location to mapped point 
+   function distance(lon1, lat1, lon2, lat2) {
+          var R = 6371; // Radius of the earth in km
+          var dLat = (lat2-lat1).toRad();  // Javascript functions in radians
+          var dLon = (lon2-lon1).toRad(); 
+          var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                  Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) * 
+                  Math.sin(dLon/2) * Math.sin(dLon/2); 
+          var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+          var d = (R * c)*1000; // Distance in meters
+          return d;
+        }
+
+
+        /** Converts numeric degrees to radians */
+        if (typeof(Number.prototype.toRad) === "undefined") {
+          Number.prototype.toRad = function() {
+            return this * Math.PI / 180;
+          }
+        }
+
+
+    /// check location function   
+
+    function checkLocation() {
+
+         if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(pos) {
+       
+          let distanceVmmc = distance(pos.coords.longitude, pos.coords.latitude, vmmc[0], vmmc[1]); 
+        
+          let distanceFirstenberg = distance(pos.coords.longitude, pos.coords.latitude, firstenberg[0], firstenberg[1]);
+
+          let distanceCrosswalk = distance(pos.coords.longitude, pos.coords.latitude, crosswalk[0], crosswalk[1]);
+
+
+          // check locations - these conditionals trigger the text to appear on the page at the location and will only be replaced at the next location. In the <div> you can add images, video and audio - anything html. 
+          if (distanceVmmc < 15) { 
+            $('#box').html('<div>You are in the VMMC lab 111.</div>');
+             }
+          else if (distanceFirstenberg < 15) { 
+            $('#box').html('<div><p>You are at the Firstenberg Fountain</p></div>');
+             }
+          else if (distanceCrosswalk < 15) { 
+            $('#box').html('<div><p>You are at the crosswalk as you enter from parking lot path.</p></div>');
+             }
+          else {$('#box').append('');} // this adds an empty string when no place is nearby
+
+        },
+        function error(msg) {alert('Please enable your GPS position feature.');},
+        {maximumAge:10000, timeout:5000, enableHighAccuracy: true});
+        } else {
+            alert("Geolocation API is not supported in your browser.");
+        }
+
+        setTimeout(checkLocation,10000); //this checks the location every ten seconds
+ 
+
+    }  // closes check location
+
+    checkLocation();
+        
+
+  </script>
+
+</body>
+</head>
+
+
+
+
