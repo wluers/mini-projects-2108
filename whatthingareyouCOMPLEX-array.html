@@ -268,13 +268,15 @@
       
      // pop-up an answer
       document.getElementById("answer").style.display = "block";
-      document.getElementById("answer").innerHTML =  '<img src=' + resultsArray[result][0] + '> <br> The result is: ' + result + '. You are ' + resultsArray[result][0] + '. ' + resultsArray[result][2];
+      document.getElementById("answer").innerHTML =  `<img src='${resultsArray[result][1]}'><br>The result is: ${result}. You are ${resultsArray[result][0]}. ${resultsArray[result][2]}.`;
     
     
-    
+ 
     
     }  // this closes computeForm
     
+
+
 
 
     </script>

@@ -1,0 +1,149 @@
+
+    <!DOCTYPE html>
+    
+    
+    <html>
+
+    <head>
+
+    <title>audio and video</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js">
+</script>
+
+	
+
+
+	<style>
+	
+	#button1  {
+		position: fixed;
+		right: 5px;
+		top: 5px;
+		}
+
+	#button2  {
+		position: fixed;
+		right: 5px;
+		top: 25px;
+		}
+
+	#button3  {
+		position: fixed;
+		right: 5px;
+		top: 55px;
+		}
+
+	#button4  {
+		position: fixed;
+		right: 5px;
+		top: 75px;
+		}
+	
+	</style>
+
+    </head>
+
+    <body>
+    
+    <audio src="audio.mp3" loop></audio>
+    <video src="video.mp4" loop muted></video>
+    <button id="button1">Play Audio</button>
+    <button id="button2">Stop Audio</button>
+    <button id="button3">Play Video</button>
+    <button id="button4">Stop Video</button>
+  
+  
+    </div>
+
+
+   <script>
+  
+   //JavaScript
+
+     let button1 = document.querySelector("#button1");
+     let button2 = document.querySelector("#button2");
+     let button3 = document.querySelector("#button3");
+     let button4 = document.querySelector("#button4");
+     let audio = document.querySelector("audio");
+     let video = document.querySelector("video");
+
+
+     button1.addEventListener("click", function(){ 
+         let rndStrt = Math.random() * audio.duration;
+         audio.currentTime = rndStrt;
+         audio.play();
+     });
+
+     button3.addEventListener("click", function(){ 
+     	video.play();
+     });
+
+     button2.addEventListener("click", function(){ 
+     	audio.pause();
+     });
+
+     button4.addEventListener("click", function(){ 
+     	video.pause();
+     });
+
+
+	
+/*	 //jQuery
+
+ $(document).ready(function(){   
+
+        //The "get()"" method gets the DOM elements specified by the selector.
+	    let audio = $('audio').get(0);
+	    let video = $('video').get(0);
+
+	    $('video').css('display', 'none');
+
+		$("#button1").on("click",function() {
+			audio.volume = 0;
+			let rndStrt = Math.random() * audio.duration;
+            audio.currentTime = rndStrt;
+			audio.play();
+	        $("audio").animate({volume: 1}, 3000);
+			
+		});
+
+		$("#button3").on("click",function() {
+
+            video.play();
+	        $("video").fadeIn(3000);
+			
+		});
+
+		$("#button2").on("click",function() {
+
+	        $("audio").animate({volume: 0}, 3000, function() {
+                 audio.pause();
+	        });
+			
+		});
+
+		$("#button4").on("click",function() {
+
+	        $("video").fadeOut(3000, function() {
+                video.pause();
+	        });
+	         
+			
+		});
+
+		
+
+
+	});  //this closes the document ready function
+
+*/
+	
+	</script>
+
+
+
+    
+    </body>
+
+    </html>
+

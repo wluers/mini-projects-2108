@@ -521,6 +521,9 @@ document.write(stringArray);*/
 
 
 
+
+
+
 // WEEK 4
 //add event listener element.addEventListener(event, function, useCapture);
 
@@ -534,8 +537,9 @@ document.querySelector('#box').innerHTML += "Here is a message<br>";
 
 
 //  ARRAY METHODS
+// strings are also arrays!
 
-/*
+
 let box = document.querySelector('#box');
 
 let fruits = [ 
@@ -547,23 +551,23 @@ let fruits = [
 
 fruits.push("kiwis");  //add to end
 fruits.unshift("melons");//add to start
-box.innerHTML = `the fruits array: <em>${fruits}</em>`;
+//box.innerHTML = `the fruits array: <em>${fruits}</em>`;
 
 fruits.pop(); //remove last
 fruits.shift(); //remove first
-box.innerHTML += `<br>first and last removed:<em>${fruits}</em>`;
+//box.innerHTML += `<br>first and last removed:<em>${fruits}</em>`;
 
-let citrus = fruits.slice(2, 4);
-box.innerHTML += `<br>just citrus: ${citrus}`;
-
+//let citrus = fruits.slice(2, 4);
+//box.innerHTML += `<br>just citrus: ${citrus}`;
 
 fruits.splice(1, 0, "strawberries", "blueberries");
-box.innerHTML += `<br>add berries: <em>${fruits}</em>`;
+//box.innerHTML += `<br>add berries: <em>${fruits}</em>`;
+
+
+///
 
 
 /*
-///
-
 // SLICE - take out portion
 let box = document.getElementById('box');
 let fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
@@ -578,15 +582,7 @@ let box = document.getElementById('box');
 let fruits = ["Banana", "Orange", "Apple", "Mango"];
 fruits.splice(2, 1, "Lemon", "Kiwi");
 box.innerHTML = fruits;
-
-
-
-
-
-
-
-
-
+*/
 
 
 
@@ -600,11 +596,11 @@ function makeSingular(item) {
       {singleFruit = singleFruit.slice(0,-2) + "y";}
     box.innerHTML += `<em>${singleFruit}</em>, `;
 }
-box.innerHTML += `<br>plural to single: `;
+//box.innerHTML += `<br>plural to single: `;
 
 fruits.forEach(makeSingular);
 
-*/
+
 
 
 // Iterators
@@ -613,9 +609,8 @@ fruits.forEach(makeSingular);
 
 // FOR EACH
 
-//<button onclick="numbers.forEach(addItems)">Try it</button>
-
-
+// Iterator forEach acts on each item of an array with a function
+/*
 
 let box = document.getElementById('box');
 let sum = 0;
@@ -628,7 +623,7 @@ function addItems(item) {
 
 numbers.forEach(addItems);
 
-
+*/
 
 /*
 
@@ -730,6 +725,10 @@ function everyFunction() {
 }
 */
 
+
+
+
+
 // THIS
 /*document.querySelector("button").addEventListener("click", disappear);
 
@@ -752,6 +751,14 @@ function disappear() {
 };
 box.innerHTML = person.fullName();
 */
+
+
+
+
+
+
+
+
 
 //WEEK 5
 
@@ -796,9 +803,6 @@ document.getElementById("box").innerHTML = `breakfast is ${myMeals.breakfast}, l
 
 
 
-
-
-
 //ES6 CLassses
 
 /*let name = prompt("What is the name of your Mealplan?"),
@@ -807,9 +811,6 @@ document.getElementById("box").innerHTML = `breakfast is ${myMeals.breakfast}, l
     veg = prompt("Favorite vegetables?", "asparagus, spinach, tomato"),
     fruit = prompt("Favorite fruits?", "apple, stawberry, banana"),
     fat = prompt("What are some favorite fats?", "avocado, cheese, bacon");*/
-
-
-
 
 /*
 

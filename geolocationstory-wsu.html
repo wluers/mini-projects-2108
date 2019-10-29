@@ -100,41 +100,45 @@
 
     /// check location function   
 
-    function checkLocation() {
+  function checkLocation() {
 
-         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(pos) {
-       
-          let distanceVmmc = distance(pos.coords.longitude, pos.coords.latitude, vmmc[0], vmmc[1]); 
-        
-          let distanceFirstenberg = distance(pos.coords.longitude, pos.coords.latitude, firstenberg[0], firstenberg[1]);
+    if (navigator.geolocation) {
+        //navigator.geolocation.getCurrentPosition(success, error, [options]])
+        navigator.geolocation.getCurrentPosition(function(pos) {
 
-          let distanceCrosswalk = distance(pos.coords.longitude, pos.coords.latitude, crosswalk[0], crosswalk[1]);
+                let distanceVmmc = distance(pos.coords.longitude, pos.coords.latitude, vmmc[0], vmmc[1]);
+
+                let distanceFirstenberg = distance(pos.coords.longitude, pos.coords.latitude, firstenberg[0], firstenberg[1]);
+
+                let distanceCrosswalk = distance(pos.coords.longitude, pos.coords.latitude, crosswalk[0], crosswalk[1]);
+
+                // check locations - these conditionals trigger the text to appear on the page at the location and will only be replaced at the next location. In the <div> you can add images, video and audio - anything html. 
+                if (distanceVmmc < 15) {
+                    $('#box').html('<div>You are in the VMMC lab 111.</div>');
+                } else if (distanceFirstenberg < 15) {
+                    $('#box').html('<div><p>You are at the Firstenberg Fountain</p></div>');
+                } else if (distanceCrosswalk < 15) {
+                    $('#box').html('<div><p>You are at the crosswalk as you enter from parking lot path.</p></div>');
+                } else {
+                    $('#box').append('');
+                } // this adds an empty string when no place is nearby
+
+            },
+            function error(msg) {
+                alert('Please enable your GPS position feature.');
+            }, {
+                maximumAge: 10000,
+                timeout: 5000,
+                enableHighAccuracy: true
+            });
+    } else {
+        alert("Geolocation API is not supported in your browser.");
+    }
+
+    setTimeout(checkLocation, 10000); //this checks the location every ten seconds
 
 
-          // check locations - these conditionals trigger the text to appear on the page at the location and will only be replaced at the next location. In the <div> you can add images, video and audio - anything html. 
-          if (distanceVmmc < 15) { 
-            $('#box').html('<div>You are in the VMMC lab 111.</div>');
-             }
-          else if (distanceFirstenberg < 15) { 
-            $('#box').html('<div><p>You are at the Firstenberg Fountain</p></div>');
-             }
-          else if (distanceCrosswalk < 15) { 
-            $('#box').html('<div><p>You are at the crosswalk as you enter from parking lot path.</p></div>');
-             }
-          else {$('#box').append('');} // this adds an empty string when no place is nearby
-
-        },
-        function error(msg) {alert('Please enable your GPS position feature.');},
-        {maximumAge:10000, timeout:5000, enableHighAccuracy: true});
-        } else {
-            alert("Geolocation API is not supported in your browser.");
-        }
-
-        setTimeout(checkLocation,10000); //this checks the location every ten seconds
- 
-
-    }  // closes check location
+} // closes check location
 
     checkLocation();
         

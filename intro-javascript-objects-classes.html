@@ -10,6 +10,7 @@
       h1 {
         text-align: center;
       }
+
       #box {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -17,8 +18,8 @@
       }
 
       #box div {
-         height: 200px;
-          padding: 3%;
+         height: 150px;
+          padding: 2%;
           border: 1px solid black;
 
       }
@@ -28,88 +29,17 @@
 </head>
 <body>
 
-  <button onclick="newMealPlan()">CLICK</button>
+    <h1></h1>
+    <div id="box"></div>
+
+	  <button onclick="newMealPlan()">CLICK</button>
 
 
-  <h1></h1>
-  <div id="box"></div>
-
-	  
 
 
 <script> 
 
-// Objects - a thing with properties and functions
-/*
-let box = document.querySelector('#box');
-
-// create a object as just a variable with an object literal
-
-let Mealplanner = {
-  breakfast : ["eggs", "bagel", "yogurt"],
-  lunch : ["avocado sandwich", "soup","cheese and fruit"],
-  dinner :  function() { alert("Remember, no red meat(Moo)"); }, 
-  diet : "vegetarian"
-};
-
-box.innerHTML = `breakfast is ${Mealplanner.breakfast[2]}`;
-box.innerHTML += `<br>lunch is ${Mealplanner.lunch[1]}`;
-Mealplanner.dinner();
-*/
-
-
-
-
-
-
-
-// Object Constructor - a **function** that builds an object type or template to construct a new object
-
-
-/*
-function Mealplanner(breakfast, lunch, dinner) {
-    this.breakfast = breakfast;
-    this.lunch = lunch;
-    this.dinner = dinner;
-    this.message = function() {
-        alert("Animals feel. Don't eat them.");
-    }
-}
-
-let myMeals = new Mealplanner('bagel', 'soup', 'chicken');
-
-myMeals.breakfast = ['yogurt','cereal', 'eggs'];
-document.getElementById("box").innerHTML = myMeals.breakfast[1];
-
-//let myMeals = new Mealplanner();
-//document.getElementById("box").innerHTML = `breakfast is ${myMeals.breakfast}, lunch is ${myMeals.lunch}, dinner is ${myMeals.dinner}`;
-*/
-
-
-
-// JavaScript Classes are Constructor functions with a prototype property - or rather the constructor is built into the object prototype. Has been missing in Javascript. The class keyword starts a class declaration, which allows us to define a constructor AND a set of methods all in a single place.
-
-/*
-class Mealplanner {
-  constructor(breakfast, lunch, dinner) {
-    // the underscore indicates that these properties are cannot/should not be changed - private and public code
-    this._breakfast = breakfast;
-    this._lunch = lunch;
-    this._dinner = dinner;
-  }
-  
-  //add methods
-  // add getters >  get properties via method
-  // add setter >  set properties via method
-
-}
-
-*/
-
-
-
-
-//////Mealplanner Class
+//////CLASS
 
 
   class Mealplan  {
@@ -125,8 +55,6 @@ class Mealplanner {
 
 
   ///GETTERS
-  // when you call the getters you don't use parantheses 
-
       get name() {
         return this._name;
       }
@@ -155,10 +83,11 @@ class Mealplanner {
         return this._fat.split(", ");
       }
 
+
+
     
 
   ///SETTERS
-  // when you call the setters you don't use parantheses 
       set name(newName) {
         this._name = newName;   
       }
@@ -199,7 +128,7 @@ function newMealPlan() {
 
   document.querySelector("#box").innerHTML = '';
 
-  let name = prompt("What is your name?", "Alexander");
+  let name = prompt("What is your name?", "Alex");
   let breakfast = prompt("What are some your favorite breakfast foods?", "cereal, oatmeal, bagel, eggs & bacon, fruit");
   let protein = prompt("What are some your favorite proteins?",  "beef, turkey, salmon, chicken, eggs");
   let carb = prompt("What are your favorite carbs?", "pasta, rice, sweet potatoes, bread");
@@ -210,18 +139,9 @@ function newMealPlan() {
       /////INSTANCE OF CLASS
 
       const user = new Mealplan(name, breakfast, protein, carb, veg, fruit, fat);
-      user.name = prompt('What do you like to be called?');
       user.createPlan();
 
-      
-
 } // closes newMeaplan function
-
-
-
-
-
-
 
 
   </script>
