@@ -1,0 +1,127 @@
+
+
+<!DOCTYPE html>
+<html>
+<head> 
+<style>
+#poem {
+	width: 65%;
+	padding: 3%;
+	margin: 5% auto;
+	border: 2px solid black;
+	font-size: 1.5em;
+	}
+
+.message {
+    max-width: 300px;
+    padding: 3%;
+    border: 1px solid black;
+    background-color: #F2F3F5;
+    color: black;
+    font-family: helvetica;
+    margin: 3% ;
+    border-radius: 25px;
+}
+
+.reply {
+    max-width: 300px;
+    padding: 3%;
+    border: 1px solid black;
+    background-color: #157FFB;
+    color: white;
+    font-family: "Open Sans", helvetica, sans-serif;
+    margin: 3% ;
+    margin-left: 300px;
+    border-radius: 25px;
+}
+
+</style>
+
+
+</head>
+<body>
+<button onclick="makeLyric()">poem generator</button>
+<div id="poem"></div>
+
+
+<script>
+    let someText = [
+"You say yes, I say no",
+"You say stop and I say go, go, go",
+"Oh, no",
+"You say goodbye and I say hello",
+"Hello, hello",
+"I don't know why you say goodbye",
+"I say hello",
+"Hello, hello",
+"I don't know why you say goodbye",
+"I say hello",
+"I say high, you say low",
+"You say why and I say I don't know",
+"Oh, no",
+"You say goodbye and I say hello",
+"Hello, hello",
+"(Hello goodbye)",
+"I don't know why you say goodbye",
+"I say hello",
+"Hello, hello",
+"(Hello goodbye)",
+"I don't know why you say goodbye",
+"(Hello goodbye)",
+"I say hello",
+"Why, why, why, why, why, why",
+"Do you say goodbye?",
+"Goodbye, bye, bye, bye, bye",
+"Oh, no",
+"You say goodbye and I say hello",
+"Hello, hello",
+"I don't know why you say goodbye",
+"I say hello",
+"Hello, hello",
+"I don't know why you say goodbye",
+"I say hello",
+"You say yes",
+"(I say yes)",
+"I say no",
+"(But I may mean no)",
+"You say stop",
+"(I can stay)",
+"And I say go, go, go",
+"(Til it's time to go)",
+"Oh, no",
+"You say goodbye and I say hello",
+"Hello, hello",
+"I don't know why you say goodbye",
+"I say hello",
+"Hello, hello",
+"I don't know why you say goodbye",
+"I say hello",
+"Hello, hello",
+"I don't know why you say goodbye I say hello",
+"Hello",
+"Hela, goodbye hello",
+"Hela, goodbye hello",
+"Hela, heba helloa"
+ ];
+
+let messageClass = ['message', 'reply'];
+let i = -1;
+
+    function getRandomInt(min, max) {
+               return Math.floor(Math.random() * (max - min + 1) + min)
+     }
+	
+    function makeLyric() {	
+    	i++;
+        if (i >= messageClass.length){i=0;}
+     // add line every 2 seconds
+        let random = getRandomInt(0, someText.length-1);
+    
+        document.querySelector('#poem').innerHTML += `<div class=${messageClass[i]}>${someText[random]}</div>`;
+        setTimeout(makeLyric, 2000);
+    }
+
+</script>
+
+</body>
+</html>

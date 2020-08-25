@@ -63,7 +63,7 @@
 
  // variables
 
-   /*
+  /*
     let firstname;
     firstname ="Nicholas";
     //document.write(firstname);
@@ -72,7 +72,7 @@
     // Concatination
     document.write('<br>My name is ' + firstname);
     document.write(`<br>My name is ${firstname}`);
-  */
+ */
 
 
    //strings  (counting index from 0)
@@ -270,6 +270,12 @@ document.write(`My favorite starch is ${starches[2]}<br>`);
 document.write(`My favorite vegetable is ${vegetables[2]}<br>`);
 
 */
+
+
+
+
+
+
 
 
 
@@ -527,19 +533,20 @@ document.write(stringArray);*/
 // WEEK 4
 //add event listener element.addEventListener(event, function, useCapture);
 
-/*document.querySelector("button").addEventListener("click", displayMessage);
+/*
+//onclick vs addEventListener
+
+document.querySelector("button").addEventListener("click", displayMessage);
 
 function displayMessage() {
-document.querySelector('#box').innerHTML += "Here is a message<br>";
+  document.querySelector("#box").innerHTML = "You clicked the button.";
 }*/
-
-
 
 
 //  ARRAY METHODS
 // strings are also arrays!
 
-
+/*
 let box = document.querySelector('#box');
 
 let fruits = [ 
@@ -548,23 +555,39 @@ let fruits = [
 "lemons", 
 "oranges"
 ];
+*/
 
-fruits.push("kiwis");  //add to end
-fruits.unshift("melons");//add to start
+//fruits.push("kiwis");  //add to end
+//fruits.unshift("melons");//add to start
 //box.innerHTML = `the fruits array: <em>${fruits}</em>`;
 
-fruits.pop(); //remove last
-fruits.shift(); //remove first
+//fruits.pop(); //remove last
+//fruits.shift(); //remove first
 //box.innerHTML += `<br>first and last removed:<em>${fruits}</em>`;
 
 //let citrus = fruits.slice(2, 4);
 //box.innerHTML += `<br>just citrus: ${citrus}`;
 
-fruits.splice(1, 0, "strawberries", "blueberries");
+//fruits.splice(1, 0, "strawberries", "blueberries");
 //box.innerHTML += `<br>add berries: <em>${fruits}</em>`;
+/*
 
+document.querySelector("button").addEventListener("click", displayArray);
 
-///
+function displayArray() {
+  box.innerHTML = `the fruits array: <em>${fruits}</em>`;
+  //box.innerHTML = `the cirtus array: <em>${citrus}</em>`;
+}
+
+function makeSingular(item) {
+    let singleFruit = item.slice(0,-1); // a local function
+    if (singleFruit.slice(-2) == "ie") 
+      {singleFruit = singleFruit.slice(0,-2) + "y";}
+    box.innerHTML += `<em>${singleFruit}</em>, `;
+}
+
+fruits.forEach(makeSingular);
+*/
 
 
 /*
@@ -589,7 +612,7 @@ box.innerHTML = fruits;
 // Iterator forEach acts on each item of an array with a function
 //let singleFruit; // a global function
 //let singleFruits  = [];
-
+/*
 function makeSingular(item) {
     let singleFruit = item.slice(0,-1); // a local function
     if (singleFruit.slice(-2) == "ie") 
@@ -599,7 +622,7 @@ function makeSingular(item) {
 //box.innerHTML += `<br>plural to single: `;
 
 fruits.forEach(makeSingular);
-
+*/
 
 
 
@@ -610,8 +633,8 @@ fruits.forEach(makeSingular);
 // FOR EACH
 
 // Iterator forEach acts on each item of an array with a function
-/*
 
+/*
 let box = document.getElementById('box');
 let sum = 0;
 let numbers = [65, 44, 12, 4];
@@ -622,8 +645,8 @@ function addItems(item) {
 }
 
 numbers.forEach(addItems);
-
 */
+
 
 /*
 
@@ -733,14 +756,15 @@ function everyFunction() {
 /*document.querySelector("button").addEventListener("click", disappear);
 
 function disappear() {
-  this.style.display ='none';
+  //this.style.fontSize ='2em';
+  //this.style.display ='none';
 }*/
 
 
 
-
+/*
 // OBJECTS INTRO
-/*var person = {
+let person = {
   firstName:"Margie", 
   lastName:"Pepper", 
   age:50, 
@@ -749,7 +773,9 @@ function disappear() {
     return `${this.firstName} ${this.lastName}`;
   }
 };
-box.innerHTML = person.fullName();
+//box.innerHTML = `My name is ${person.firstName} ${person.lastName}. I am ${person.age} and have ${person.eyeColor} eyes.`;
+box.innerHTML = `My name is ${person.fullName()}. I am ${person.age} and have ${person.eyeColor} eyes.`;
+
 */
 
 
@@ -768,9 +794,9 @@ box.innerHTML = person.fullName();
 let box = document.querySelector('#box');
 
 let Mealplanner = {
-  breakfast : ["tofu", "bagel", "yogurt"],
-  lunch : "avocado sandwich",
-  dinner :  function() { alert("Anything but meat!"); }, 
+  breakfast : ["eggs", "bagel", "yogurt"],
+  lunch : "peanut butter sandwich",
+  dinner :  function() { alert("Pizza!"); }, 
   diet : "vegetarian"
 };
 */

@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>weather app</title>
+	<style>
+   </style>
+ </head>
+
+ <body>
+
+ 	<div>
+ 		<input type="text" id="city">
+ 		<button id="submitWeather">Search City</button>
+ 	</div>
+
+ 	<div id="show"></div>
+ 	<div id="error"></div>
+  
+
+    <script>
+        
+        let weather = document.querySelector("#submitWeather")
+        let show = document.querySelector("#show");
+        let error = document.querySelector("#error");
+
+        weather.addEventListener("click", function(){
+             let city = document.querySelector("#city").value;
+             if (city != '') {
+
+                  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&APPID=5d403b6b84ed210aa64a032618aa4156`)
+                  .then(function(resp) { return resp.json() }) // Convert data to json
+                  .then(function(data) {
+                        console.log(data);
+                        let description  = data.weather[0].description;
+                        let temp  = data.main.temp;
+                        let icon  = data.weather[0].icon;
+                        let humidity  = data.main.humidity;
+                        show.innerHTML = `<img src="http://openweathermap.org/img/w/${icon}.png"> <br> Currently there is ${description}, the temperature is ${temp} and the humdidity is ${humidity}`;
+
+                        if (description.includes("rain"))
+                        { document.querySelector('body').style.backgroundColor = "grey" }
+                        else if (description.includes("clear"))
+                          { document.querySelector('body').style.backgroundColor = "orange" }
+                        else 
+                          { document.querySelector('body').style.backgroundColor = "blue" }
+                        
+                        
+                  })
+                  .catch(function() {
+                    // catch any errors
+                  });
+              
+            }
+            else {
+                error.innerHTML = "Field cannot be empty";
+            }
+       });
+       
+
+
+    </script>
+ </body>
+ </html>

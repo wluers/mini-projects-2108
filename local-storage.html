@@ -16,34 +16,36 @@
 		<p id="scoreBox"></p>
 
 		<script>
+			// get the element #scoreBox
             let scoreBox = document.querySelector('#scoreBox');
-            // localStorage.setItem('score', '0') - this would set the score in local storage, but we don't want to return to zero each page refresh, so.....
-            if (scoreBox.innerHTML === null) {
+           
+            //check to see if there is a property score already created. if not, enter 0 into the score box.
+            if (localStorage.score) {
+                	scoreBox.innerHTML = localStorage.getItem('score');
+                }
+            else {
             	scoreBox.innerHTML = '0';
             }
-            else {
-            	scoreBox.innerHTML = localStorage.getItem('score');
-            }
-            
 
+           
+            // a function to increment the number in the box 
 			function incScore() {
 				let num = scoreBox.innerHTML;
 				num++;
 				scoreBox.innerHTML = num;
-				//saveScore(); you can save here as well
 			}
 
+			// a function to save the number currently in the box as a property called "score" of the localStorage object (native to HTML5)
 			function saveScore()  {
 				let newScore = scoreBox.innerHTML;
-                localStorage.score = newScore; // save current score t0 localStorage
-                if (localStorage.getItem('score')) {
-                	scoreBox.innerHTML = localStorage.getItem('score');
-                }
-			}
+                localStorage.score = newScore; 
+            }
 
+
+            // a function to delete the current propery "score" saved in local storage. 
 			function reStart()  {
 				localStorage.removeItem("score"); // get rid of localStorage
-				scoreBox.innerHTML = null;
+				scoreBox.innerHTML = '0';
 			}
 
 

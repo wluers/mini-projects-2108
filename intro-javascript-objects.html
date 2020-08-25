@@ -39,7 +39,15 @@
 
 <script> 
 
-// Objects - a thing with properties and functions
+// Objects - a thing with properties and methods
+
+//let box = document.querySelector('#box');
+//let d = new Date();
+//box.innerHTML = `Now: ${d}`;
+//box.innerHTML = `The time is ${d.getHours()}`;
+//console.log(Date.prototype);
+
+
 /*
 let box = document.querySelector('#box');
 
@@ -56,10 +64,6 @@ box.innerHTML = `breakfast is ${Mealplanner.breakfast[2]}`;
 box.innerHTML += `<br>lunch is ${Mealplanner.lunch[1]}`;
 Mealplanner.dinner();
 */
-
-
-
-
 
 
 
@@ -109,113 +113,6 @@ class Mealplanner {
 
 
 
-//////Mealplanner Class
-
-
-  class Mealplan  {
-    constructor(name, breakfast, protein, carb, veg, fruit, fat) {
-      this._name = name;
-      this._breakfast = breakfast;
-      this._protein = protein;
-      this._carb = carb;
-      this._veg = veg;
-      this._fruit = fruit;
-      this._fat = fat;
-      }
-
-
-  ///GETTERS
-  // when you call the getters you don't use parantheses 
-
-      get name() {
-        return this._name;
-      }
-
-      get breakfast() {
-        return this._breakfast.split(", ");
-      }
-
-      get protein() {
-        return this._protein.split(", ");
-      }
-
-      get carb() {
-        return this._carb.split(", ");
-      }
-
-      get veg() {
-        return this._veg.split(", ");
-      }
-
-      get fruit() {
-        return this._fruit.split(", ");
-      }
-
-      get fat() {
-        return this._fat.split(", ");
-      }
-
-    
-
-  ///SETTERS
-  // when you call the setters you don't use parantheses 
-      set name(newName) {
-        this._name = newName;   
-      }
-
-  
-
-      createPlan() {
-
-
-        for (let i = 0; i <= 6; i++){  
-
-            let arrayList = [this.breakfast, this.protein, this.carb, this.veg, this.fruit, this.fat];
-            let randomNums = [];
-            let randomNums2 = [];
-            //let randomSpecial = Math.floor(Math.random() * 7);
-
-           arrayList.forEach(function(item, index){
-               randomNums[index] = Math.floor(Math.random() * (item.length-1));
-               randomNums2[index] = Math.floor(Math.random() * (item.length-1));
-           });   
-
-            document.querySelector("h1").innerHTML = `${this.name}'s Meal Plan`;
-            document.querySelector("#box").innerHTML += `<div id="day${i+1}"><strong>Day ${i+1}</strong><br>Breakfast: ${this.breakfast[randomNums[0]]}<br>Lunch: ${this.protein[randomNums[1]]}, ${this.carb[randomNums[2]]}, ${this.veg[randomNums[3]]}, ${this.fruit[randomNums[4]]}, ${this.fat[randomNums[5]]}<br>Dinner: ${this.protein[randomNums2[1]]}, ${this.carb[randomNums2[2]]}, ${this.veg[randomNums2[3]]}, ${this.fruit[randomNums2[4]]}, ${this.fat[randomNums2[5]]}</div>`;
-
-            //if ( i+1 === randomSpecial) { document.querySelector(`#day${i+1}`).innerHTML = `<strong>Day${i+1}</strong><br>Eat Cake and Ice Cream!`; }
-
-         } //closes loop
-          
-          document.querySelector("button").style.display = 'none';
-
-      } // closes createPlan
-  } // closes Mealplan class
-
-
-
-
-function newMealPlan() {
-
-  document.querySelector("#box").innerHTML = '';
-
-  let name = prompt("What is your name?", "Alexander");
-  let breakfast = prompt("What are some your favorite breakfast foods?", "cereal, oatmeal, bagel, eggs & bacon, fruit");
-  let protein = prompt("What are some your favorite proteins?",  "beef, turkey, salmon, chicken, eggs");
-  let carb = prompt("What are your favorite carbs?", "pasta, rice, sweet potatoes, bread");
-  let veg = prompt("Favorite vegetables?", "asparagus, spinach, tomato, lettuce, green beans");
-  let fruit = prompt("Favorite fruits?", "apple, strawberry, banana, mango, blueberries, raspberries");
-  let fat = prompt("What are some favorite fats?", "avocado, cheese, yogurt, butter, olive oil");
-
-      /////INSTANCE OF CLASS
-
-      const user = new Mealplan(name, breakfast, protein, carb, veg, fruit, fat);
-      user.name = prompt('What do you like to be called?');
-      user.createPlan();
-
-      
-
-} // closes newMeaplan function
 
 
 
