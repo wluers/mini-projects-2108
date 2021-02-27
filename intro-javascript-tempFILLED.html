@@ -3,7 +3,7 @@
 <html lang="en">
 <head> 
 	<meta charset="utf-8">
-	<script src="script.js"></script>
+
 	
 	<style>
 
@@ -290,9 +290,9 @@ document.write(`My favorite vegetable is ${vegetables[2]}<br>`);
 
 // FUNCTIONS
 
-/* 
+ 
 // three different ways to declare a function
-
+/*
 function displayMessage() {
   alert("Hello World!");
 } 
@@ -434,7 +434,7 @@ nested functions  -  circles
 
 
    //document.getElementById('box')
-  //document.querySelector('#box');
+  
   
 
 
@@ -464,8 +464,6 @@ function randomFoods() {
       menu[i] = foods[i][rnd]; 
     }
 
-
-   
    // ${menu} first
 
     document.getElementById('box').innerHTML = `Today, eat: <em>${menu[0]}, ${menu[1]}, ${menu[2]}</em>`;
@@ -476,19 +474,22 @@ randomFoods();
 */
 
 
-/*  //RANDOM GENERATOR
 
-let randomNum1 = Math.random();
+// let box = document.querySelector('#box');
+
+  //RANDOM GENERATOR
+
+/*let randomNum1 = Math.random();
 let randomNum2 = Math.random() * 20;
 let randomNum3 = Math.floor(Math.random() * 20);
 
-
+*/
         // random generator
-       function getRandomInt(min, max) {
+       /*function getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
           }  
 
-        getRandomInt(5,10);
+        box.innerHTML = `The number is: ${getRandomInt(5,10)}`;
         
 */
 
@@ -533,18 +534,37 @@ document.write(stringArray);*/
 // WEEK 4
 //add event listener element.addEventListener(event, function, useCapture);
 
-/*
+
 //onclick vs addEventListener
+/*
+
+document.querySelector("button").addEventListener("click", function() {
+  displayMessage();
+});
 
 document.querySelector("button").addEventListener("click", displayMessage);
 
 function displayMessage() {
   document.querySelector("#box").innerHTML = "You clicked the button.";
-}*/
+}
+*/
 
 
 //  ARRAY METHODS
+
 // strings are also arrays!
+// let word = "cat";
+// doc
+
+
+// .split
+/*let pets = "dogs, cats, birds, fish";
+let petsArray = pets.split(",");
+document.write(petsArray[0]);
+
+let string = "I have a lot of pets";
+let stringArray = string.split(" ");
+document.write(stringArray);*/
 
 /*
 let box = document.querySelector('#box');
@@ -643,7 +663,15 @@ function addItems(item) {
     sum += item;
     box.innerHTML = sum;
 }
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
 
+</body>
+</html>
 numbers.forEach(addItems);
 */
 
@@ -762,9 +790,9 @@ function disappear() {
 
 
 
-/*
+
 // OBJECTS INTRO
-let person = {
+/*let person = {
   firstName:"Margie", 
   lastName:"Pepper", 
   age:50, 
@@ -772,11 +800,11 @@ let person = {
   fullName:  function() {
     return `${this.firstName} ${this.lastName}`;
   }
-};
+};*/
 //box.innerHTML = `My name is ${person.firstName} ${person.lastName}. I am ${person.age} and have ${person.eyeColor} eyes.`;
-box.innerHTML = `My name is ${person.fullName()}. I am ${person.age} and have ${person.eyeColor} eyes.`;
+//box.innerHTML = `My name is ${person.fullName()}. I am ${person.age} and have ${person.eyeColor} eyes.`;
 
-*/
+
 
 
 

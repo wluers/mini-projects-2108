@@ -20,11 +20,10 @@ body  {
   position: relative;
   height: 60px;
   width: 60px;
-  border-radius: 60px;å
+  border-radius: 60px;
   margin: 1%;
   float: left;
   border: 2px solid black;
-  position: relative;
   opacity: 1;
   font-size: 2em;
   text-align: center;
@@ -69,6 +68,7 @@ button {
 	
     // create a function to multiply circles
 	function  setCircles()  {
+		// a loop to repeat 200 circles
 		  for(let i=0; i<199; i++) {
 			  wrapper.insertAdjacentHTML('beforeend', '<div class="circle"></div>');
 			  //wrapper.innerHTML += '<div class="circle"></div>';
@@ -77,15 +77,16 @@ button {
 		  // run the function to change position and color of each circle
 		  changeColors();
 
-		  // create animation of change
-		  //setInterval(changeColors, 500);
+		    // create animation of change
+	       //setInterval(changeColors, 2000);
+		  
 	} 
 	
 	// set a variable to count thru the colors array (below)
 	let colorcount = -1;
 
 	// select a random color
-	let randmcolor = '#'+ Math.random().toString(16).substr(2,6); // or prompt('Name your color:');
+	let randmcolor = '#'+ Math.random().toString(16).substr(2,6);// or prompt('Name your color:');
 	
 	//console.log(Math.random());
 	//console.log(Math.random().toString(16));
@@ -109,7 +110,7 @@ button {
         
 
           // change the background of the wrapper to the selected item of the colors array
-         wrapper.style.backgroundColor= colors[colorcount];
+         wrapper.style.backgroundColor = colors[colorcount];
     
            // create a loop to change the positionin (relative) and color for each circle individually
          for(let i = 0; i < circles.length; i++){
@@ -127,7 +128,7 @@ button {
 		    // change background-color for an individual circle
 		    thisCircle.style.backgroundColor = randmcolor;
 		    // change top relative position for an individual circle
-            thisCircle.style.top = num1 + 'px'; 
+            thisCircle.style.top = `${num1}px`; 
              // change left relative position for an individual circle
             thisCircle.style.left = num2 + 'px'; 
             // change z-index for an individual circle
@@ -139,8 +140,7 @@ button {
 	} //closes the changeColors() function 
 
     
-     // create animation of change
-	//setInterval(changeColors, 1000);
+   
 	
 
 

@@ -38,12 +38,12 @@
 
        	//context identifier defining the drawing context associated to the canvas - 2D, wbgl (3D)
 	    let ctx = c.getContext("2d");
-	    //let increment = 90;
+	    let increment = 90;
 			
         
         function drawFace() {
 
-             //increment+= 5;
+             increment+= 5;
 
             // x and y coordinates for eyeballs
 	        let EyeballX = getRandomInt(150, 155),
@@ -96,7 +96,7 @@
 			ctx.arc(210, 230, 15, 0, Math.PI); // Mouth (clockwise)
 
 			// Left Eyebrow
-			ctx.moveTo(90, 120);
+			ctx.moveTo(increment, 120);
 			ctx.lineTo(180, 100);
 			
 
@@ -132,13 +132,13 @@
 
                 drawFace();
     		    //setTimeout(animateFace, 1000);
-    		    window.requestAnimationFrame(animateFace);
+    		    //requestAnimationFrame(animateFace);
     	}
 
-    	//setInterval(animateFace, 1000);
+    	setInterval(animateFace, 1000);
 
-               //window.requestAnimationFrame(animateFace);
-        animateFace();
+        
+        //animateFace();
             
 	
 

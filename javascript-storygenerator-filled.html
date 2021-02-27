@@ -21,8 +21,8 @@
 <script>
 
 
-    let story = document.getElementById('story');
-    //let story = document.querySelector('#story');
+    //let story = document.getElementById('story');
+     let story = document.querySelector('#story');
 
     
 	
@@ -40,11 +40,11 @@
 		place[1] = prompt('Name a place.','Philadelphia').toLowerCase();
 
 
-	    story.innerHTML = `In <span style="text-transform:capitalize;">${place[1]}</span>, I met <a href="#" onclick="changeName()">${character[0]}</a> who had ${object[1]} with magical powers. All you had to do was whisper \"<span style="text-transform:capitalize;">${character[1]}</span>\" and a creature named <span style="text-transform:capitalize;">${character[1]}</span> appeared ${place[0]} with ${object[0]}. But neither ${object[0]} nor <span style="text-transform:capitalize;">${character[1]}</span> had any magical powers as far as I could tell. So there we were, ${place[0]}, somewhere in <span style="text-transform:capitalize;">${place[1]}</span>. Me, ${character[0]} and <span style="text-transform:capitalize;">${character[1]}</span> staring at ${object[1]} and ${object[0]}.`;
+	    story.innerHTML = `In <span style="text-transform:capitalize;">${place[1]}</span>, I met ${character[0]} who had ${object[1]} with magical powers. All you had to do was whisper \"<span style="text-transform:capitalize;">${character[1]}</span>\" and a creature named <span style="text-transform:capitalize;">${character[1]}</span> appeared ${place[0]} with ${object[0]}. But neither ${object[0]} nor <span style="text-transform:capitalize;">${character[1]}</span> had any magical powers as far as I could tell. So there we were, ${place[0]}, somewhere in <span style="text-transform:capitalize;">${place[1]}</span>. Me, ${character[0]} and <span style="text-transform:capitalize;">${character[1]}</span> staring at ${object[1]} and ${object[0]}.`;
         }
 
 
-    function changeName() {
+    /*function changeName() {
 
     	let character = [],
 		    object = [],
@@ -59,7 +59,7 @@
 
     	story.innerHTML = `In <span style="text-transform:capitalize;">${place[1]}</span>, I met <a href="#" onclick="changeName()">${character[0]}</a> who had ${object[1]} with magical powers. All you had to do was whisper \"<span style="text-transform:capitalize;">${character[1]}</span>\" and a creature named <span style="text-transform:capitalize;">${character[1]}</span> appeared ${place[0]} with ${object[0]}. But neither ${object[0]} nor <span style="text-transform:capitalize;">${character[1]}</span> had any magical powers as far as I could tell. So there we were, ${place[0]}, somewhere in <span style="text-transform:capitalize;">${place[1]}</span>. Me, ${character[0]} and <span style="text-transform:capitalize;">${character[1]}</span> staring at ${object[1]} and ${object[0]}.`;
         
-    }
+    }*/
 
    
 </script>

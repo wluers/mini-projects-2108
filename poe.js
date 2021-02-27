@@ -1,24 +1,3 @@
-// TO BREAK A LINE AFTER A PERIOD
-// find all periods: \.
-// replace with: \.\n 
-
-// TO ADD QUOTE AT START OF LINES",
-// find beginning of line: ^
-// replace with: "
-
-// TO ADD QUOTE AND COMMA AT END OF LINES",
-// find end of line: $
-// replace with: ",
-
-// TO REMOVE ALL EMPTY LINES
-// find: ^\R
-// replace with nothing
-
-// TO REMOVE ALL LINE BREAKS 
-// find: \n\s+ 
-// replace with nothing
-
-let someText = [
 "The \"Red Death\" had long devastated the country.",
 " No pestilence had ever been so fatal, or so hideous.",
 " Blood was its Avatar and its seal—the redness and the horror of blood.",
@@ -43,6 +22,3 @@ let someText = [
 " Without was the \"Red Death\".",
 
 "It was towards the close of the fifth or sixth month of his seclusion, and while the pestilence raged most furiously abroad, that the Prince Prospero entertained his thousand friends at a masked ball of the most unusual magnificence.",
-
-
- ];

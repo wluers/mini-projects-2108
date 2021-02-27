@@ -155,8 +155,8 @@
 	
 	let map = new mapboxgl.Map({
 		container: 'map',
-		style: 'mapbox://styles/wluers/cjs0x705m06t81fmqlxmfelql',
-        //style: 'mapbox://styles/wluers/cjs0x705m06t81fmqlxmfelql',
+		//style: 'mapbox://styles/wluers/cjs0x705m06t81fmqlxmfelql',
+        style: 'mapbox://styles/mapbox/satellite-v9',
 		center: [-119.262833, 46.329140], // starting position [lng, lat]
     	zoom: 5 // starting zoom
 	});
@@ -176,6 +176,8 @@
                 zoom: 18
             });
             window.location = marker.properties.url;
+            //$('.info-box').fadeOut();
+            //$(marker.properties.url).fadeIn(1000);
             $('button').delay(3000).fadeIn(1000);
         });
 
@@ -185,7 +187,7 @@
         new mapboxgl.Marker(el)
             .setLngLat(marker.geometry.coordinates)
             .setPopup(new mapboxgl.Popup({offset: 25}) // add popups
-                .setHTML(`<h3>${marker.properties.title}</h3><p>${marker.properties.description}</p>`))
+            .setHTML(`<h3>${marker.properties.title}</h3><p>${marker.properties.description}</p>`))
             .addTo(map);
 
 
@@ -202,8 +204,12 @@
 
       // zoom out and reset center with jQuery
       $('button').on('click', function() {
-          map.setZoom(5);
-          map.setCenter([-119.262833, 46.329140]);
+          map.flyTo({
+                center:[-119.262833, 46.329140], 
+                zoom: 5
+            });
+         // map.setZoom(5);
+         // map.setCenter([-119.262833, 46.329140]);
           $(this).fadeOut(1000);
       })
 

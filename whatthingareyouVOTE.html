@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+s<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
@@ -13,101 +13,101 @@
     
     <form name="quiz">
     
-  <section class="questions" id="quest1">
+  <section>
            <h3>How do you see yourself?<br></h3>
 
 		  <div>  
-			<input TYPE="radio" NAME="question1" VALUE="1">Confidant
+			<input type="radio" name="question1" value="1">Confidant
 		  </div>
 
 		   <div>
-			<input TYPE="radio" NAME="question1" VALUE="2">Curious
+			<input type="radio" name="question1" value="2">Curious
 		   </div>
 
 			<div>
-				<input TYPE="radio" NAME="question1" VALUE="3">Flexible
+				<input type="radio" name="question1" value="3">Flexible
 			</div>
 			
 			<div>
-				<input TYPE="radio" NAME="question1" VALUE="4">Empathetic
+				<input type="radio" name="question1" value="4">Empathetic
 			</div>
 			
 	</section>
 			
 			
 			
-	    <section class="questions" id="quest2">
+	    <section>
            <h3>How are you with strangers?<br></h3>
 
 		  <div>  
-			<input TYPE="radio" NAME="question2" VALUE="1">Skeptical
+			<input type="radio" name="question2" value="1">Skeptical
 		  </div>
 
 		   <div>
-			<input TYPE="radio" NAME="question2" VALUE="2">Cautious
+			<input type="radio" name="question2" value="2">Cautious
 		   </div>
 
 			<div>
-				<input TYPE="radio" NAME="question2" VALUE="3">Gregarious
+				<input type="radio" name="question2" value="3">Gregarious
 			</div>
 			
 			<div>
-				<input TYPE="radio" NAME="question2" VALUE="4">Helpful
+				<input type="radio" name="question2" value="4">Helpful
 			</div>
 			
 		</section>
 			
 			
-	    <section class="questions" id="quest3">
+	    <section>
            <h3>How do you describe your thinking style?<br></h3>
 
 		  <div>  
-			<input TYPE="radio" NAME="question3" VALUE="1">Analytical
+			<input type="radio" name="question3" value="1">Analytical
 		  </div>
 
 		   <div>
-			<input TYPE="radio" NAME="question3" VALUE="2">Logical  
+			<input type="radio" name="question3" value="2">Logical  
 		   </div>
 
 			<div>
-				<input TYPE="radio" NAME="question3" VALUE="3">Imaginative
+				<input type="radio" name="question3" value="3">Imaginative
 			</div>
 			
 			<div>
-				<input TYPE="radio" NAME="question3" VALUE="4">Associational
+				<input type="radio" name="question3" value="4">Associational
 			</div>
 			
 		</section>
 		
 		
-	    <section class="questions" id="quest4">
+	    <section>
            <h3>How do others see you?<br></h3>
 
 		  <div>  
-			<input TYPE="radio" NAME="question4" VALUE="1">Assertive
+			<input type="radio" name="question4" value="1">Assertive
 		  </div>
 
 		   <div>
-			<input TYPE="radio" NAME="question4" VALUE="2">Critical
+			<input type="radio" name="question4" value="2">Critical
 		   </div>
 
 			<div>
-				<input TYPE="radio" NAME="question4" VALUE="3">Open
+				<input type="radio" name="question4" value="3">Open
 			</div>
 			
 			<div>
-				<input TYPE="radio" NAME="question4" VALUE="4">Self-critical
+				<input type="radio" name="question4" value="4">Self-critical
 			</div>
 			
 		</section>
 	    
 	  
 			<div id="submit"> 
-			 <input TYPE="button" VALUE="What are You?" onClick="computeForm(this.form)">
+			 <input type="button" value="What are You?" onClick="computeForm(this.form)">
 			</div> 
 			
 			<div id="reset"> 
-			 <input TYPE="button" VALUE="Reset" onClick="reset(this.form)">
+			 <input type="button" value="Reset" onClick="reset(this.form)">
 			</div> 
 
     </form>
@@ -120,20 +120,24 @@
 
     function computeForm(form) {
         
-        let qNum = 1;
+        let questNum = 1;
       	let scissors = 0;
       	let ruler = 0;
       	let pen = 0;
       	let paper = 0;
       	let choice;
+
+     
+     
+      
       
 
-	  for (qNum = 1; qNum <= 4; qNum++) {
-		  let radio_inputs = document.forms['quiz'].elements['question'+ qNum];
+	  for (questNum = 1; questNum <= 4; questNum++) {
+		  let radioInputs = document.forms['quiz'].elements[`question${questNum}`];
 		  
-			   for (let i = 0; i < radio_inputs.length; i++) {
-				   if (radio_inputs[i].checked) {
-					  choice = radio_inputs[i].value;
+			   for (let i = 0; i < radioInputs.length; i++) {
+				   if (radioInputs[i].checked) {
+					  choice = radioInputs[i].value;
 					  }  // closes condition on checked
 			   } // closes for loop on radios         
 					  
@@ -162,7 +166,7 @@
 
         
     
-      if (scissors >= ruler && scissors >= pen && scissors >= paper && scissors > 0)     {
+      if (scissors > ruler && scissors > pen && scissors > paper && scissors > 0)     {
          // scissors is the highest
          result = "scissors";
       }
@@ -178,12 +182,17 @@
          // paper is the highest
          result = "paper";
       }
+      else if (paper == 1 && scissors == 1 && ruler == 1 && pen == 1) {
+         // paper is the highest
+         result = "you are nothing";
+      }
       else {
          result = "oops";
       }
         
       
-        alert("You are a " + result + ". The values are: scissors is " + scissors + ", ruler is " + ruler + ", pen is " + pen + ", paper is " + paper);
+      
+        alert(`You are a ${result}. The values are: scissors is ${scissors} , ruler is ${ruler}, pen is ${pen}, paper is ${paper}`);
         
     
     

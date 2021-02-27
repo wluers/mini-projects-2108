@@ -51,47 +51,46 @@
 
 // Objects - objects are virtual things that have properties and methods. object-oriented-programming => divide software projects into smaller pieces that interact with other pieces through an interface of properties and methods - public and pivate code/ Mapbbox provides certain objects with properties and methods that you can use - like 'new Map' that you can use to create your own instance of map with its zoom level and location / Objects let you store information about an abstract thing like a  person: name, age, gender, favorite activity, etc. Naming an object might imply shared charactestics with  other similar  object. Mammals have eyes, but different eye colors. Hair, but different color hair. So the prototype of an object is this abstract entity that groups it with other objects - in javascript the term prototype is actually - in the syntax - the property of a function that points to an object in the chain. starting with the Object object. There is the Object.prototype at the top. Then...Javascript has built in object like the Date.prototype gets you the prototype of the Date object. when you write new Date() you are accessing the prototype of Date object which mean you can create a new Date of get the current hour with the getHour() method - d.getHour();  or Array.prototype with myArray.split(), or ,splice(), forEach() etc. let myArray = []; is a shortcut to let myArray = new Array(); or Person.prototype - have properties and methods.  
 
-/*
+
 let box = document.querySelector('#box');
 
-// create a object as just a variable with an object literal
+// create an object as just a variable with an object literal
 
-let Mealplanner = {
-  breakfast : ["eggs", "bagel", "yogurt"],
-  lunch : ["avocado sandwich", "soup","cheese and fruit"],
-  dinner :  function() { alert("Pizza?"); }, 
-  diet : "vegetarian"
-};
+// let Mealplanner = {
+//   breakfast : ["eggs", "bagel", "yogurt"],
+//   lunch : ["avocado sandwich", "soup","cheese and fruit"],
+//   dinner :  function() { alert("Pizza?"); }, 
+//   diet : "vegetarian"
+// };
 
-box.innerHTML = `breakfast is ${Mealplanner.breakfast[2]}`;
-box.innerHTML += `<br>lunch is ${Mealplanner.lunch[1]}`;
-Mealplanner.dinner();
+// box.innerHTML = `breakfast is ${Mealplanner.breakfast[2]}`;
+// box.innerHTML += `<br>lunch is ${Mealplanner.lunch[1]}`;
+// Mealplanner.dinner();
 
-*/
 
 
 
 // Object Constructor - a **function** that builds an object type or template to construct a new object
 
-/*
+
 
 function Mealplanner(breakfast, lunch, dinner) {
     this.breakfast = breakfast;
     this.lunch = lunch;
     this.dinner = dinner;
     this.message = function() {
-        alert('Animals feel. Don't eat them.);
+        alert('Animals feel. Don\'t eat them.);
     }
 }
 
-let myMeals = new Mealplanner('bagel', 'soup', 'chicken');
+//let myMeals = new Mealplanner('bagel', 'soup', 'chicken');
 let myMeals = new Mealplanner();
 let myMeals.breakfast = ['yogurt','cereal', 'eggs']
 myMeals.breakfast[1];
 
 document.getElementById("box").innerHTML = `breakfast is ${myMeals.breakfast}, lunch is ${myMeals.lunch}, dinner is ${myMeals.dinner}`;
 
-*/
+
 
 
 // JavaScript Classes are Constructor functions with a prototype property - or rather the constructor is built into the object prototype. Has been missing in Javascript. The class keyword starts a class declaration, which allows us to define a constructor AND a set of methods all in a single place.

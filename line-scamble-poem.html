@@ -106,20 +106,32 @@
 
 let messageClass = ['message', 'reply'];
 let i = -1;
+let j = -1;
+let count = 0;
 
     function getRandomInt(min, max) {
                return Math.floor(Math.random() * (max - min + 1) + min)
      }
 	
-    function makeLyric() {	
-    	i++;
+    function makeLyric() {
+    	count++;
+        i++;
+        j++;
+        if (j >= someText.length){i=0;}
         if (i >= messageClass.length){i=0;}
      // add line every 2 seconds
         let random = getRandomInt(0, someText.length-1);
     
-        document.querySelector('#poem').innerHTML += `<div class=${messageClass[i]}>${someText[random]}</div>`;
+        document.querySelector('#poem').innerHTML += `<div class=${messageClass[i]}>${someText[j]}</div>`;
+        
+
+        if (count === 10) 
+            {document.querySelector('#poem').innerHTML = ""}
+
         setTimeout(makeLyric, 2000);
     }
+
+    //setInterval(makeLyric, 2000);
 
 </script>
 

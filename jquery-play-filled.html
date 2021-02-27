@@ -1,70 +1,63 @@
-
-    <!DOCTYPE html>
-    
-    
-    <html>
-
-    <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
     <title>jquery play template</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js">
-</script>
-
-	
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 	<style>
-	body  {
-		background-color: #ffffff; 
-		font-family: futura, helvetica, arial, sans-serif 
-		}
-	
-	#wrapper {
-		position: relative; 
-		background-color: #ffffff; 
-		width: 800px; 
-		height: 600px; 
-		margin: 20px auto; 
-		border: 1px dotted #000000; 
-		padding: 20px;
-		} 
-	
-	p  {
-		position: absolute;
-		right: 0px;
-		bottom: 0px;
-		background-color: #ffffff; 
-		width: 450px; 
-		border: 1px solid #000000; 
-		padding: 10px; 
-		margin: 0px
-		}
-	
-	#box  {
-		position: absolute;
-		left: 0px;
-		top: 0px;
-		padding: 10px;
-		background-color: #ffffff; 
-		background-repeat: no-repeat; 
-		width: 400px; 
-		height: 270px; 
-		border: 2px solid #000000;
-		}
+		body  {
+			background-color: #ffffff; 
+			font-family: futura, helvetica, arial, sans-serif 
+			}
 		
-	button  {
-		position: fixed;
-		right: 0px;
-		top: 0px;
-		}
+		#wrapper {
+			position: relative; 
+			background-color: #ffffff; 
+			width: 800px; 
+			height: 600px; 
+			margin: 20px auto; 
+			border: 1px dotted #000000; 
+			padding: 20px;
+			} 
+		
+		p  {
+			position: absolute;
+			right: 0px;
+			bottom: 0px;
+			background-color: #ffffff; 
+			width: 450px; 
+			border: 1px solid #000000; 
+			padding: 10px; 
+			margin: 0px
+			}
+		
+		#box  {
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			padding: 10px;
+			background-color: #ffffff; 
+			background-repeat: no-repeat; 
+			width: 400px; 
+			height: 270px; 
+			border: 2px solid #000000;
+			}
+			
+		button  {
+			position: fixed;
+			right: 0px;
+			top: 0px;
+			}
 	
 	
 	
 	</style>
+</head>
 
-    </head>
-
-    <body>
+<body>
     
     <div id="wrapper">
     
@@ -91,20 +84,20 @@
 		// simple event with a function 
 
 
-		$("button").click(function() {
+	/*	$("button").on('click',function() {
 			//alert("You clicked a button.");
-			$('p').html("<em>Replaced Text</em>");
+			//$('p').html("<em>Replaced Text</em>");
 			//$('p').append("<em>Text</em>");
 			//$('p').prepend("<div>Text inside and before content</div>");
-			//$('p div').before("<div>before element</div>");
-			//$('p div').after("<div>after element</div>");
+			//$('p').before("<div>before element</div>");
+			//$('p').after("<div>after element</div>");
 		});
-/**/
+*/
 
 
-/*
 
-       $("button").click(function(){
+
+ /*      $("button").on('click',function(){
 		  $("p").css('width','150px');
 		});
 */
@@ -117,8 +110,8 @@
 
 */
 
-/*
-		$("button").click(function(){
+
+	/*	$("button").on('click',function(){
 			$('p').css({
 			'background-color':'yellow',
 			'width':'150px',
@@ -131,7 +124,7 @@
 
 
 /*
-$("button").click(function(){
+$("button").on('click',function(){
   $("p").hide(1000);
   alert("The paragraph is now hidden");
 });
@@ -141,20 +134,20 @@ $("button").click(function(){
 
 // with callback functions
 
-/*
-$("button").click(function(){
-    $("p").hide("slow",function(){
+
+/*$("button").on('click',function(){
+    $("p").hide(1000,function(){
       alert("The paragraph is now hidden");
     });
   });
-
- */
-
+*/
 
 
-/*
+
+
+
 // anonymous function, each and this
-
+/*
 		$("button").click(function(){
 		  $("li").each(function(){
 		    //alert($(this).text());
@@ -163,31 +156,28 @@ $("button").click(function(){
 		});
 */
 
-/*
+
 // without chaining
-$("ul").css('font-size', '1.2em');
+/*$("ul").css('font-size', '1.2em');
 $("ul").delay(2000);
-$("ul").fadeOut(2000);
+$("ul").fadeOut(2000);*/
 
-*/
-
-/*
 // with chaining
-$("ul").css('color', 'red').delay(2000).fadeOut(2000);
-*/
+//("ul").css('color', 'red').delay(2000).fadeOut(2000);
+
 
 
 // simple event with a function 
 
-/*
-  $("button").click(function(){
-    $("p").toggle();
-    //$("p").slideToggle();
-  });
- */
 
-/*
-$("body").keyup(function(e){
+ /* $("button").click(function(){
+    //$("p").toggle();
+    $("p").slideToggle();
+  });
+*/
+
+
+/*$("body").keyup(function(e){
    if(e.keyCode == 8){
        // user has pressed backspace
        $("p").css({'background-color': 'red'});
@@ -200,12 +190,12 @@ $("body").keyup(function(e){
 */
   
   
-/*
-mouse: click, dblclick, mousedown, mouseup, mouseover, mouseout, mousemove 
-document/window: load, resize, scroll, unload, 
+
+/*mouse: click, dblclick, mousedown, mouseup, mouseover, mouseout, mousemove 
+document window: load, resize, scroll, unload, 
 keyboard: keypress, keydown, keyup
-jquery events (two functions passed):  hover
-*/
+jquery events (two functions passed):  hover*/
+
 
 
 /*
@@ -216,28 +206,23 @@ function(){
     $("body").css("background-color","red");
 }
 );
-
 */
 
 
-/*
+
+
 // event object
 
- $(document).mousemove(function(evt){ 
-    $("p").text("X: " + evt.pageX + ", Y: " + evt.pageY); 
+ /*$(document).mousemove(function(evt){ 
+    $("p").text(`X:${evt.pageX}, Y: ${evt.pageY}`); 
   });
-
- // .on()
-$("button").on("click",function(){
-    $("p").slideToggle();
-  });
-
-  */
+*/
 
 
 
-/*
-$("button").on({
+
+
+/*$("button").on({
   click:function(){
  	$("p").slideToggle();
  	},
@@ -248,48 +233,51 @@ $("button").on({
     	$("body").css("background-color","#FFFFFF");}  
   });
 
-*/ 
+*/
   
 
 // EFFECTS
  
  //  animate with arguement
  
-/*
- $("button").click(function(){
-   $("#box").animate(
-    {width:"100%"},2000);
+
+ /*$("button").on('click', function(){
+    $("#box").animate(
+    {"width":"100%"},2000);
   });
- */
+*/
  
 
 //  stop()
 
-/*
-$("button").click(function(){
-$("#box").animate({width:"820px"},5000);
-});    
 
-$("#box").dblclick(function(){
-$("#box").stop();
-});
-*/
+/*$("button").on('click',function(){
+	  $("#box").animate({"width":"820px"},5000); 
+
+	  $("#box").on('dblclick',function(){
+	      $("#box").stop();   
+      });  
+});*/
+
+
+
 
 // .delay()
 
-/*
- $("button").click(function(){
+
+/* $("button").click(function(){
 	$("#box").animate(
 		{height:'100px'},1000)
 	.delay(3000)
 	.animate(
-		{width:'820px'},1000);
-});
- */ 
+		{width:'820px'},1000)
+	.delay(2000)
+	.fadeOut(2000)
+	.delay(2000)
+	.fadeIn(2000);
+});*/
+
  
-
-
-
 	});  //this closes the document ready function
 	
 
