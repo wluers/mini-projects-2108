@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Exploring Southern Iceland</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+<style>
+
+body { margin: 0; padding: 0; }
+
+#header {
+            position: relative;
+            text-align: center;
+            top: 20px;
+            margin: auto;
+            width: 30%;
+            z-index: 1;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: white;
+            color: #D14544;      
+        }
+
+
+            h1 {
+                font-family: 'Staatliches', cursive;
+                color:  #D14544;
+                font-size: 50px;
+                padding: 5px;
+            }
+
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+
+.marker {
+        display: block;
+        cursor: pointer;
+        padding: 0;
+    }
+
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+
+</style>
+</head>
+
+
+<body>
+
+    <div id="header">
+        <h1>Exploring Southern Iceland</h1>
+    </div>
+
+
+<div id="map">
+</div>
+
+<div class="hidden" id="place1"></div>
+
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiYWxib2J3c3UiLCJhIjoiY2tsaWlyY2h3MmV5dzJwbzNxODFsOGw2dCJ9.GxDFc-Pf72rSBnt8z6lNzg';
+var map = new mapboxgl.Map({
+container: 'map', 
+style: 'mapbox://styles/albobwsu/ckm2iqq1a119r17r20p3esopd', // style URL
+center: [-19.65817397698674, 63.51605651269264],
+zoom: 10
+});
+
+var geojson = {
+        'type': 'FeatureCollection',
+        'features': [
+            {   
+                'type': 'Feature',
+                'properties': {
+                    'message': 'Skógafoss Waterfall',
+                    'iconSize': [70, 90],
+                    'icon' :  'img/image.png',
+                    'infobox' : "#volcano"
+                },
+
+                'geometry': {
+                    'type': 'Point',
+                    'coordinates': [-19.511408537423645, 63.53216535099637]
+                }
+            },
+
+
+
+
+
+
+            {
+                'type': 'Feature',
+                'properties': {
+                    'message': 'Seljalandsfoss Waterfall ',
+                     'iconUrl': 'https://postimg.cc/hQtfFdRW',
+                     'iconSize': [70, 90]
+                },
+                'geometry': {
+                    'type': 'Point',
+                    'coordinates': [-19.988954017573512, 63.616765526429454]
+                }
+            },
+
+
+
+
+
+             {
+                'type': 'Feature',
+                'properties': {
+                    'message': 'Solheimasandur Plane Wreck',
+                    'iconSize': [70, 90]
+                },
+                'geometry': {
+                    'type': 'Point',
+                    'coordinates': [ -19.36449797849287, 63.45991552927077]
+                }
+            },
+
+
+            {
+                'type': 'Feature',
+                'properties': {
+                    'message': 'Loftsalahellir Cave',
+                    'iconSize': [70, 90]
+
+
+                },
+                'geometry': {
+                    'type': 'Point',
+                    'coordinates': [ -19.1517705782861, 63.42196504064467]
+                }
+            },
+            
+
+            {
+                'type': 'Feature',
+                'properties': {
+                    'message': 'Reynisfjara Beach',
+                    'iconSize': [70, 90]
+                },
+
+                'geometry': {
+                    'type': 'Point',
+                    'coordinates': [-19.071836554688403, 63.40591435221572]
+                }
+            }
+        ]
+    };
+
+  
+
+
+
+    // add markers to map
+
+geojson.features.forEach(function (marker) {
+
+        // create a DOM element for the marker
+        var el = document.createElement('div');
+        el.className = 'marker';
+        el.style.backgroundImage = `url(${marker.properties.icon})`;
+ 
+    
+       el.style.width = marker.properties.iconSize[0] + 'px';
+        el.style.height = marker.properties.iconSize[1] + 'px';
+        el.style.backgroundSize = '100%';
+
+        el.addEventListener('click', function () {
+             let visible = documentquerySelector('.visible');
+             let newInfo = documentquerySelector(marker.properties.infobox);
+             visible.classList.remove('visible');
+             visible.classList.add('hidden');
+             newInfo.classList.remove('hidden');
+             newInfo.classList.add('visible');
+            //window.alert(marker.properties.message);
+        });
+
+        // add marker to map
+        new mapboxgl.Marker(el)
+            .setLngLat(marker.geometry.coordinates)
+            .addTo(map);
+    });
+
+</script>
+ 
+</body>
+</html>
+
+

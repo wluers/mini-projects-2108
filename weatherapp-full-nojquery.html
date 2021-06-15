@@ -15,51 +15,60 @@
  		<button id="submitWeather">Search City</button>
  	</div>
 
- 	<div id="show"></div>
+ 	<div id="weather">
+         <div id="location"></div>
+        <div id="icon"></div>
+        <div id="description"></div>
+        <div id="temp"></div>
+        <div id="humidity"></div>
+       
+        
+    </div>
  	<div id="error"></div>
    
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script>
-    	$(document).ready(function() {
+        //key 5d403b6b84ed210aa64a032618aa4156
+        let city;
 
-    	//key 5d403b6b84ed210aa64a032618aa4156
-        $('#submitWeather').click(function() {
-        	let city = $('#city').val();
-        	if (city != '') {
+        document.getElementById("submitWeather").addEventListener("click", function() {
+            city = document.getElementById("city").value;
+            //alert(city);
+            if (city != '') {
+                getWeather(city);
+            }
+            else {
+                document.getElementById("error").innerHTML = "Field cannot be empty";
+                }
+        })
 
-        		$.ajax({
-
-        			url: `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&APPID=5d403b6b84ed210aa64a032618aa4156`,
-        			type: "GET",
-        			dataType: "jsonp",
-        			success: function(response) {
-        				console.log(response);
-        				
-                        let description  = response.weather[0].description;
-                        let temp  = response.main.temp;
-                        let icon  = response.weather[0].icon;
-                        let humidity  = response.main.humidity;
-
-        					$('#show').html(`<img src="http://openweathermap.org/img/w/${icon}.png"> <br> Currently there is ${description}, the temperature is ${temp} and the humdidity is ${humidity}`);
-        			} //closes function
-
-        		});
-
-
-        	}
-        	else {
-        		$('#error').html("Field cannot be empty");
-        	}
         
-        });
+        
+        function getWeather(city) {
+          fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&APPID=5d403b6b84ed210aa64a032618aa4156`)  
+          .then(function(resp) { return resp.json() }) // Convert data to json
+          .then(function(data) {
+            console.log(data);
+            displayWeather(data);
+          })
+          .catch(function() {
+            // catch any errors
+          });
+        }
 
+        function displayWeather(d) {
+            
+            document.getElementById('location').innerHTML = d.name;
+            document.getElementById('icon').innerHTML = `<img src="http://openweathermap.org/img/w/${d.weather[0].icon}.png">`;
+            document.getElementById('description').innerHTML = `Currently there is ${d.weather[0].description}.`;
+            document.getElementById('temp').innerHTML = `The temperature is ${d.main.temp}`;
+            document.getElementById('humidity').innerHTML = `The humidity is ${d.main.humidity}`;
+            
+        }
+    	
 
-
-
-    });
-
+    	
     </script>
  </body>
  </html>

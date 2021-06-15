@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>weather app</title>
+	<style>
+   </style>
+ </head>
+
+ <body>
+
+
+ 	<div id="weather">
+        <h1 id="location"></h1>
+        <div id="icon"></div>
+        <div id="description"></div>
+        <div id="temp"></div>
+        <div id="humidity"></div>  
+    </div>
+ 	<div id="error"></div>
+   
+
+
+ <script>
+    //key 5d403b6b84ed210aa64a032618aa4156
+
+   let myLat;
+   let myLong;   
+   
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(getWeather);
+  } else { 
+    alert("Geolocation is not supported by this browser.");
+  }
+}
+
+function getWeather(position) {
+  myLat = position.coords.latitude; 
+  myLong = position.coords.longitude;
+  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${myLat}&lon=${myLong}&appid=5d403b6b84ed210aa64a032618aa4156`)
+          .then(function(resp) { return resp.json() }) // Convert data to json
+          .then(function(data) {
+            console.log(data); // log data to console
+            displayWeather(data); // run function to display weather data
+          })
+          .catch(function() {
+            // catch any errors
+          });
+
+}
+
+
+function displayWeather(d) {
+            document.querySelector('#location').innerHTML = d.name;
+            document.querySelector('#icon').innerHTML = `<img src="https://openweathermap.org/img/w/${d.weather[0].icon}.png">`;
+            document.querySelector('#description').innerHTML = `Currently there is ${d.weather[0].description}.`;
+            document.querySelector('#temp').innerHTML = `The temperature is ${d.main.temp}`;
+            document.querySelector('#humidity').innerHTML = `The humidity is ${d.main.humidity}`;  
+
+            if (d.weather[0].description.includes('clear')) 
+                {
+                    document.querySelector('body').style.backgroundColor = 'yellow';
+
+                }
+            if (d.weather[0].description.includes('clouds')) 
+                {
+                    document.querySelector('body').style.backgroundColor = 'gray';
+                }
+
+}
+
+
+    	
+    </script>
+ </body>
+ </html>

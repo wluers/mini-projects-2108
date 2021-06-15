@@ -123,7 +123,8 @@
          "properties": {
              "title": "WSU",
              "description": "Vancouver",
-             "url": '#vancouver'
+             "url": '#vancouver',
+             "icon" : 'img/image.png'
          }
      },
      {
@@ -168,6 +169,7 @@
         // create a HTML element for each feature
         let el = document.createElement('div');
         el.className = 'marker';
+        el.style.backgroundImage = marker.properties.url;
 
 
         el.addEventListener('click', function() {
